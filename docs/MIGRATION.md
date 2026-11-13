@@ -7,19 +7,19 @@ This release is a clean break. The system now sits on the **igniteui-theming** e
 | Area | Before | Now |
 |---|---|---|
 | Palette, type, spacing, size, radius, elevation | Hand-picked literals | Engine output (`palette()`, `typography()`, `pad()`, `sizable()`, `border-radius()`, indigo elevations) |
-| Token names | `--ig-blue`, `--text-muted`, `--space-6`, `--ig-t-…` | `--color-{role}-{variant}-{state}`, `--space-{n}`, `--radius-{step}`, `--shadow-{role}`, `--type-{slot}-…` |
+| Token names | `--igd-blue`, `--text-muted`, `--space-6`, `--igd-t-…` | `--color-{role}-{variant}-{state}`, `--space-{n}`, `--radius-{step}`, `--shadow-{role}`, `--type-{slot}-…` |
 | Component styling | Inline literals and JS hover state | Tokens only; hover, focus, disabled, invalid and loading are CSS |
 | Icons | An inline `<svg>` per component | One `Icon` component with stroke and size tokens |
 | Forms | A bespoke input and checkbox inside the footer | `TextField` and `Checkbox` components |
 | Entry points | `styles.css` importing `tokens/*.css` | `tokens.css` + `theme.css` |
 
-Re-theming: set `--ig-size` (1 small, 2 medium, 3 large), `--ig-spacing`, `--ig-radius-factor` or `--ig-elevation-factor` on the root and every token follows.
+Re-theming: set `--igd-size` (1 small, 2 medium, 3 large), `--igd-spacing`, `--igd-radius-factor` or `--igd-elevation-factor` on the root and every token follows.
 
 ## 2. Naming convention
 
 Three tiers, role-based names, no colour words in semantic names.
 
-1. **Raw** (`--ig-*`): engine steps, for example `--ig-primary-600`, `--ig-gray-200`. Only the semantic tier points at them.
+1. **Raw** (`--igd-*`): engine steps, for example `--igd-primary-600`, `--igd-gray-200`. Only the semantic tier points at them.
 2. **Semantic** (`--color-*`, `--space-*`, `--radius-*`, `--size-*`, `--shadow-*`, `--font-weight-*`, `--opacity-*`, `--z-index-*`, `--breakpoint-*`): what a value is for. Use these in product code.
 3. **Component** (`--footer-*`, `--table-*`, `--fw-*`, `--badge-*`, `--tile-*`, `--callout-*`): a decision made for one component, defined from the semantic tier.
 
@@ -27,7 +27,7 @@ Colour roles read `color-{role}-{variant}-{state}`: `color-action-default`, `col
 
 ## 3. Spacing scale
 
-The 25-step scale collapsed to 12 engine steps, and the steps are now named by size (`3xs` to `6xl`), not by pixel value, because the live value follows `--ig-spacing` and `--ig-size`. Steps that sat one or two pixels apart merged into their nearest neighbour. Components do not use the steps directly for padding, margins and gaps: they use the roles `--space-inset-*`, `--space-stack-*` and `--space-gap-*`.
+The 25-step scale collapsed to 12 engine steps, and the steps are now named by size (`3xs` to `6xl`), not by pixel value, because the live value follows `--igd-spacing` and `--igd-size`. Steps that sat one or two pixels apart merged into their nearest neighbour. Components do not use the steps directly for padding, margins and gaps: they use the roles `--space-inset-*`, `--space-stack-*` and `--space-gap-*`.
 
 | Before | Now |
 |---|---|
@@ -65,12 +65,12 @@ In a component, pick the role for the property: padding → `--space-inset-{size
 
 | Before | Now |
 |---|---|
-| `--ig-blue` | `--color-accent-blue` |
-| `--ig-blue-hover` | `--color-accent-blue-hover` |
-| `--ig-blue-press` | `--color-accent-blue-active` |
-| `--ig-violet` | `--color-accent-violet` |
-| `--ig-sky` | `--color-accent-sky` |
-| `--ig-teal` | `--color-accent-teal` |
+| `--igd-blue` | `--color-accent-blue` |
+| `--igd-blue-hover` | `--color-accent-blue-hover` |
+| `--igd-blue-press` | `--color-accent-blue-active` |
+| `--igd-violet` | `--color-accent-violet` |
+| `--igd-sky` | `--color-accent-sky` |
+| `--igd-teal` | `--color-accent-teal` |
 | `--action` | `--color-action-default` |
 | `--action-hover` | `--color-action-hover` |
 | `--action-hover-fill` | `--color-action-fill-hover` |
@@ -242,7 +242,7 @@ In a component, pick the role for the property: padding → `--space-inset-{size
 | `--shadow-release-hover` | `--callout-release-shadow-hover` |
 | `--shadow-panel-filter` | `--shadow-popover-filter` |
 
-Type classes: `.ig-t-{slot}` → `.type-{slot}`. Type variables: `--type-{slot}-{font-size|font-weight|line-height|font-family}` follow the engine slot names (`h1`–`h6`, `subtitle-1`, `subtitle-2`, `body-1`, `body-2`, `button`, `caption`, `overline`, `detail-1`, `detail-2`).
+Type classes: `.igd-t-{slot}` → `.type-{slot}`. Type variables: `--type-{slot}-{font-size|font-weight|line-height|font-family}` follow the engine slot names (`h1`–`h6`, `subtitle-1`, `subtitle-2`, `body-1`, `body-2`, `button`, `caption`, `overline`, `detail-1`, `detail-2`).
 
 ## 5. Component API changes
 

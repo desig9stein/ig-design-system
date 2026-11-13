@@ -190,42 +190,42 @@
  },
  {
   "fg": "footer-link",
-  "bg": "ig-dark-surface-200",
+  "bg": "igd-dark-surface-200",
   "ratio": 11.07,
   "min": 4.5,
   "ok": true
  },
  {
   "fg": "footer-text",
-  "bg": "ig-dark-surface-200",
+  "bg": "igd-dark-surface-200",
   "ratio": 8.58,
   "min": 4.5,
   "ok": true
  },
  {
   "fg": "footer-strong",
-  "bg": "ig-dark-surface-200",
+  "bg": "igd-dark-surface-200",
   "ratio": 14.47,
   "min": 4.5,
   "ok": true
  },
  {
   "fg": "footer-heading",
-  "bg": "ig-dark-surface-200",
+  "bg": "igd-dark-surface-200",
   "ratio": 6.23,
   "min": 4.5,
   "ok": true
  },
  {
   "fg": "footer-icon",
-  "bg": "ig-dark-surface-200",
+  "bg": "igd-dark-surface-200",
   "ratio": 8.58,
   "min": 4.5,
   "ok": true
  },
  {
   "fg": "color-feedback-error-inverse",
-  "bg": "ig-dark-surface-200",
+  "bg": "igd-dark-surface-200",
   "ratio": 5.28,
   "min": 4.5,
   "ok": true

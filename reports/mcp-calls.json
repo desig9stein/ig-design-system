@@ -113,7 +113,7 @@
      "textTransform": "none"
     }
    },
-   "name": "ig-type"
+   "name": "igd-type"
   }
  },
  {
@@ -122,7 +122,7 @@
    "platform": "generic",
    "output": "css",
    "designSystem": "indigo",
-   "name": "ig-elev"
+   "name": "igd-elev"
   }
  },
  {

@@ -36,9 +36,11 @@ Everything a site needs is in `dist/`. There is no framework code in it, so any 
 
 | Tier | Prefix | Who uses it |
 |---|---|---|
-| Raw | `--ig-*` | Engine output: palette steps and seeds. Only the design system reaches in here. |
+| Raw | `--igd-*` | Engine output: palette steps and seeds. Only the design system reaches in here. |
 | Semantic | `--color-*`, `--space-*`, `--radius-*`, `--size-*`, `--shadow-*`, … | Site code uses these. The name says what the value is for. |
 | Component | `--footer-*`, `--nav-*`, `--table-*`, … | One component's own choice, built from the semantic tier. |
+
+The raw tier and the theming dials use the prefix `--igd-`, not the engine's own `--ig-`, so these tokens never collide with an Ignite UI product theme loaded on the same page. The generator works in the engine's names and `src/namespace.mjs` applies the published prefix as the last build step.
 
 **Colour** names follow `color-{role}-{variant}-{state}`, for example `color-action-default`, `color-text-muted`, `color-surface-tint`. Use `color-action-default` for fills and `color-action-text` for anything drawn on a surface (links, outline labels, focus rings).
 
@@ -54,10 +56,10 @@ Set a dial on the root, or on any element, and every token below it follows.
 
 | Dial | Values |
 |---|---|
-| `--ig-size` | 1 small, 2 medium, 3 large (default) |
-| `--ig-spacing` | multiplier, default 1 |
-| `--ig-radius-factor` | unset by default (each role takes its design value); 0 is each role's minimum, 1 its maximum |
-| `--ig-elevation-factor` | multiplier, default 1 |
+| `--igd-size` | 1 small, 2 medium, 3 large (default) |
+| `--igd-spacing` | multiplier, default 1 |
+| `--igd-radius-factor` | unset by default (each role takes its design value); 0 is each role's minimum, 1 its maximum |
+| `--igd-elevation-factor` | multiplier, default 1 |
 | `data-theme="dark"` | the dark theme, on the page or on one region |
 | `data-ig-scope` | a region that carries its own brand colours |
 
@@ -90,7 +92,7 @@ Today the checks run against the reference components in this repository. Packag
 ## Repository layout
 
 ```
-src/         the generator: spec.mjs (the vocabulary), make.mjs (builds dist/), dtcg.mjs, seed.js
+src/         the generator: spec.mjs (the vocabulary), make.mjs (builds dist/), namespace.mjs (applies the --igd- prefix), dtcg.mjs, seed.js
 checks/      the checks listed above
 dist/        the generated package (committed, so a site can use it without building)
 reports/     contrast and derived-colour reports from the last build

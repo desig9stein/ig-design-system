@@ -8,7 +8,7 @@ const FILLS = {
 };
 
 // size is a name from the shared control scale: 'sm' | 'md' | 'lg' | 'xl'  (--size-control-*), or 'tile' (default, --size-tile).
-// The tile follows --ig-size like every other control.
+// The tile follows --igd-size like every other control.
 // The glyph colour (--tile-on) is derived from the fill: black on light fills, white on dark ones.
 export function IconTile({ src, alt = '', fill = 'blue', size = 'tile', style, children, ...rest }) {
   const box = 'var(--size-' + (size === 'tile' ? 'tile' : 'control-' + size) + ')';
