@@ -1,0 +1,1070 @@
+{
+ "color": {
+  "tokens": [
+   {
+    "name": "ig-primary-50",
+    "usage": "Engine palette step `primary 50`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-primary-100",
+    "usage": "Engine palette step `primary 100`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-primary-200",
+    "usage": "Engine palette step `primary 200`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-primary-300",
+    "usage": "Engine palette step `primary 300`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-primary-400",
+    "usage": "Engine palette step `primary 400`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-primary-500",
+    "usage": "Engine palette step `primary 500`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-primary-600",
+    "usage": "Engine palette step `primary 600`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-primary-700",
+    "usage": "Engine palette step `primary 700`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-primary-800",
+    "usage": "Engine palette step `primary 800`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-primary-900",
+    "usage": "Engine palette step `primary 900`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-primary-accent-100",
+    "usage": "Engine palette step `primary A100`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-primary-accent-200",
+    "usage": "Engine palette step `primary A200`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-primary-accent-400",
+    "usage": "Engine palette step `primary A400`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-primary-accent-700",
+    "usage": "Engine palette step `primary A700`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-secondary-50",
+    "usage": "Engine palette step `secondary 50`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-secondary-100",
+    "usage": "Engine palette step `secondary 100`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-secondary-200",
+    "usage": "Engine palette step `secondary 200`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-secondary-300",
+    "usage": "Engine palette step `secondary 300`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-secondary-400",
+    "usage": "Engine palette step `secondary 400`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-secondary-500",
+    "usage": "Engine palette step `secondary 500`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-secondary-600",
+    "usage": "Engine palette step `secondary 600`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-secondary-700",
+    "usage": "Engine palette step `secondary 700`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-secondary-800",
+    "usage": "Engine palette step `secondary 800`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-secondary-900",
+    "usage": "Engine palette step `secondary 900`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-secondary-accent-100",
+    "usage": "Engine palette step `secondary A100`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-secondary-accent-200",
+    "usage": "Engine palette step `secondary A200`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-secondary-accent-400",
+    "usage": "Engine palette step `secondary A400`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-secondary-accent-700",
+    "usage": "Engine palette step `secondary A700`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-info-50",
+    "usage": "Engine palette step `info 50`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-info-100",
+    "usage": "Engine palette step `info 100`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-info-200",
+    "usage": "Engine palette step `info 200`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-info-300",
+    "usage": "Engine palette step `info 300`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-info-400",
+    "usage": "Engine palette step `info 400`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-info-500",
+    "usage": "Engine palette step `info 500`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-info-600",
+    "usage": "Engine palette step `info 600`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-info-700",
+    "usage": "Engine palette step `info 700`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-info-800",
+    "usage": "Engine palette step `info 800`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-info-900",
+    "usage": "Engine palette step `info 900`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-info-accent-100",
+    "usage": "Engine palette step `info A100`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-info-accent-200",
+    "usage": "Engine palette step `info A200`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-info-accent-400",
+    "usage": "Engine palette step `info A400`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-info-accent-700",
+    "usage": "Engine palette step `info A700`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-success-50",
+    "usage": "Engine palette step `success 50`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-success-100",
+    "usage": "Engine palette step `success 100`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-success-200",
+    "usage": "Engine palette step `success 200`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-success-300",
+    "usage": "Engine palette step `success 300`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-success-400",
+    "usage": "Engine palette step `success 400`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-success-500",
+    "usage": "Engine palette step `success 500`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-success-600",
+    "usage": "Engine palette step `success 600`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-success-700",
+    "usage": "Engine palette step `success 700`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-success-800",
+    "usage": "Engine palette step `success 800`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-success-900",
+    "usage": "Engine palette step `success 900`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-success-accent-100",
+    "usage": "Engine palette step `success A100`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-success-accent-200",
+    "usage": "Engine palette step `success A200`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-success-accent-400",
+    "usage": "Engine palette step `success A400`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-success-accent-700",
+    "usage": "Engine palette step `success A700`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-warn-50",
+    "usage": "Engine palette step `warn 50`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-warn-100",
+    "usage": "Engine palette step `warn 100`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-warn-200",
+    "usage": "Engine palette step `warn 200`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-warn-300",
+    "usage": "Engine palette step `warn 300`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-warn-400",
+    "usage": "Engine palette step `warn 400`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-warn-500",
+    "usage": "Engine palette step `warn 500`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-warn-600",
+    "usage": "Engine palette step `warn 600`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-warn-700",
+    "usage": "Engine palette step `warn 700`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-warn-800",
+    "usage": "Engine palette step `warn 800`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-warn-900",
+    "usage": "Engine palette step `warn 900`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-warn-accent-100",
+    "usage": "Engine palette step `warn A100`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-warn-accent-200",
+    "usage": "Engine palette step `warn A200`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-warn-accent-400",
+    "usage": "Engine palette step `warn A400`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-warn-accent-700",
+    "usage": "Engine palette step `warn A700`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-error-50",
+    "usage": "Engine palette step `error 50`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-error-100",
+    "usage": "Engine palette step `error 100`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-error-200",
+    "usage": "Engine palette step `error 200`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-error-300",
+    "usage": "Engine palette step `error 300`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-error-400",
+    "usage": "Engine palette step `error 400`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-error-500",
+    "usage": "Engine palette step `error 500`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-error-600",
+    "usage": "Engine palette step `error 600`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-error-700",
+    "usage": "Engine palette step `error 700`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-error-800",
+    "usage": "Engine palette step `error 800`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-error-900",
+    "usage": "Engine palette step `error 900`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-error-accent-100",
+    "usage": "Engine palette step `error A100`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-error-accent-200",
+    "usage": "Engine palette step `error A200`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-error-accent-400",
+    "usage": "Engine palette step `error A400`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-error-accent-700",
+    "usage": "Engine palette step `error A700`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-gray-50",
+    "usage": "Engine palette step `gray 50`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-gray-100",
+    "usage": "Engine palette step `gray 100`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-gray-200",
+    "usage": "Engine palette step `gray 200`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-gray-300",
+    "usage": "Engine palette step `gray 300`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-gray-400",
+    "usage": "Engine palette step `gray 400`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-gray-500",
+    "usage": "Engine palette step `gray 500`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-gray-600",
+    "usage": "Engine palette step `gray 600`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-gray-700",
+    "usage": "Engine palette step `gray 700`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-gray-800",
+    "usage": "Engine palette step `gray 800`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-gray-900",
+    "usage": "Engine palette step `gray 900`, light variant. Seeded from the previous system; each step is solved for contrast by igniteui-theming."
+   },
+   {
+    "name": "ig-primary-seed",
+    "usage": "The exact seed colour the engine built the primary family from."
+   },
+   {
+    "name": "ig-secondary-seed",
+    "usage": "The exact seed colour the engine built the secondary family from."
+   },
+   {
+    "name": "ig-info-seed",
+    "usage": "The exact seed colour the engine built the info family from."
+   },
+   {
+    "name": "ig-surface-base",
+    "usage": "Engine surface role `base` (light variant)."
+   },
+   {
+    "name": "ig-surface-sunken",
+    "usage": "Engine surface role `sunken` (light variant)."
+   },
+   {
+    "name": "ig-surface-raised",
+    "usage": "Engine surface role `raised` (light variant)."
+   },
+   {
+    "name": "ig-surface-overlay",
+    "usage": "Engine surface role `overlay` (light variant)."
+   },
+   {
+    "name": "ig-dark-gray-50",
+    "usage": "Engine gray step 50, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-gray-100",
+    "usage": "Engine gray step 100, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-gray-200",
+    "usage": "Engine gray step 200, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-gray-300",
+    "usage": "Engine gray step 300, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-gray-400",
+    "usage": "Engine gray step 400, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-gray-500",
+    "usage": "Engine gray step 500, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-gray-600",
+    "usage": "Engine gray step 600, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-gray-700",
+    "usage": "Engine gray step 700, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-gray-800",
+    "usage": "Engine gray step 800, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-gray-900",
+    "usage": "Engine gray step 900, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-surface-50",
+    "usage": "Engine surface step 50, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-surface-100",
+    "usage": "Engine surface step 100, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-surface-200",
+    "usage": "Engine surface step 200, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-surface-300",
+    "usage": "Engine surface step 300, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-surface-400",
+    "usage": "Engine surface step 400, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-surface-500",
+    "usage": "Engine surface step 500, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-surface-600",
+    "usage": "Engine surface step 600, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-surface-700",
+    "usage": "Engine surface step 700, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-surface-800",
+    "usage": "Engine surface step 800, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-surface-900",
+    "usage": "Engine surface step 900, dark variant (surface seed from the previous `surface-dark`). Only for the fixed dark treatments (footer, stat badges, table header)."
+   },
+   {
+    "name": "ig-dark-surface-base",
+    "usage": "Engine surface role `base` (dark variant)."
+   },
+   {
+    "name": "ig-dark-surface-sunken",
+    "usage": "Engine surface role `sunken` (dark variant)."
+   },
+   {
+    "name": "ig-dark-surface-raised",
+    "usage": "Engine surface role `raised` (dark variant)."
+   },
+   {
+    "name": "ig-dark-surface-overlay",
+    "usage": "Engine surface role `overlay` (dark variant)."
+   },
+   {
+    "name": "ig-pink-50",
+    "usage": "Engine accent ramp `pink`, step 50: palette() seeded with the pink accent of the previous system."
+   },
+   {
+    "name": "ig-pink-100",
+    "usage": "Engine accent ramp `pink`, step 100: palette() seeded with the pink accent of the previous system."
+   },
+   {
+    "name": "ig-pink-200",
+    "usage": "Engine accent ramp `pink`, step 200: palette() seeded with the pink accent of the previous system."
+   },
+   {
+    "name": "ig-pink-300",
+    "usage": "Engine accent ramp `pink`, step 300: palette() seeded with the pink accent of the previous system."
+   },
+   {
+    "name": "ig-pink-400",
+    "usage": "Engine accent ramp `pink`, step 400: palette() seeded with the pink accent of the previous system."
+   },
+   {
+    "name": "ig-pink-500",
+    "usage": "Engine accent ramp `pink`, step 500: palette() seeded with the pink accent of the previous system."
+   },
+   {
+    "name": "ig-pink-600",
+    "usage": "Engine accent ramp `pink`, step 600: palette() seeded with the pink accent of the previous system."
+   },
+   {
+    "name": "ig-pink-700",
+    "usage": "Engine accent ramp `pink`, step 700: palette() seeded with the pink accent of the previous system."
+   },
+   {
+    "name": "ig-pink-800",
+    "usage": "Engine accent ramp `pink`, step 800: palette() seeded with the pink accent of the previous system."
+   },
+   {
+    "name": "ig-pink-900",
+    "usage": "Engine accent ramp `pink`, step 900: palette() seeded with the pink accent of the previous system."
+   },
+   {
+    "name": "ig-cyan-50",
+    "usage": "Engine accent ramp `cyan`, step 50: palette() seeded with the cyan accent of the previous system."
+   },
+   {
+    "name": "ig-cyan-100",
+    "usage": "Engine accent ramp `cyan`, step 100: palette() seeded with the cyan accent of the previous system."
+   },
+   {
+    "name": "ig-cyan-200",
+    "usage": "Engine accent ramp `cyan`, step 200: palette() seeded with the cyan accent of the previous system."
+   },
+   {
+    "name": "ig-cyan-300",
+    "usage": "Engine accent ramp `cyan`, step 300: palette() seeded with the cyan accent of the previous system."
+   },
+   {
+    "name": "ig-cyan-400",
+    "usage": "Engine accent ramp `cyan`, step 400: palette() seeded with the cyan accent of the previous system."
+   },
+   {
+    "name": "ig-cyan-500",
+    "usage": "Engine accent ramp `cyan`, step 500: palette() seeded with the cyan accent of the previous system."
+   },
+   {
+    "name": "ig-cyan-600",
+    "usage": "Engine accent ramp `cyan`, step 600: palette() seeded with the cyan accent of the previous system."
+   },
+   {
+    "name": "ig-cyan-700",
+    "usage": "Engine accent ramp `cyan`, step 700: palette() seeded with the cyan accent of the previous system."
+   },
+   {
+    "name": "ig-cyan-800",
+    "usage": "Engine accent ramp `cyan`, step 800: palette() seeded with the cyan accent of the previous system."
+   },
+   {
+    "name": "ig-cyan-900",
+    "usage": "Engine accent ramp `cyan`, step 900: palette() seeded with the cyan accent of the previous system."
+   },
+   {
+    "name": "ig-sky-50",
+    "usage": "Engine accent ramp `sky`, step 50: palette() seeded with the sky accent of the previous system."
+   },
+   {
+    "name": "ig-sky-100",
+    "usage": "Engine accent ramp `sky`, step 100: palette() seeded with the sky accent of the previous system."
+   },
+   {
+    "name": "ig-sky-200",
+    "usage": "Engine accent ramp `sky`, step 200: palette() seeded with the sky accent of the previous system."
+   },
+   {
+    "name": "ig-sky-300",
+    "usage": "Engine accent ramp `sky`, step 300: palette() seeded with the sky accent of the previous system."
+   },
+   {
+    "name": "ig-sky-400",
+    "usage": "Engine accent ramp `sky`, step 400: palette() seeded with the sky accent of the previous system."
+   },
+   {
+    "name": "ig-sky-500",
+    "usage": "Engine accent ramp `sky`, step 500: palette() seeded with the sky accent of the previous system."
+   },
+   {
+    "name": "ig-sky-600",
+    "usage": "Engine accent ramp `sky`, step 600: palette() seeded with the sky accent of the previous system."
+   },
+   {
+    "name": "ig-sky-700",
+    "usage": "Engine accent ramp `sky`, step 700: palette() seeded with the sky accent of the previous system."
+   },
+   {
+    "name": "ig-sky-800",
+    "usage": "Engine accent ramp `sky`, step 800: palette() seeded with the sky accent of the previous system."
+   },
+   {
+    "name": "ig-sky-900",
+    "usage": "Engine accent ramp `sky`, step 900: palette() seeded with the sky accent of the previous system."
+   },
+   {
+    "name": "ig-teal-50",
+    "usage": "Engine accent ramp `teal`, step 50: palette() seeded with the teal accent of the previous system."
+   },
+   {
+    "name": "ig-teal-100",
+    "usage": "Engine accent ramp `teal`, step 100: palette() seeded with the teal accent of the previous system."
+   },
+   {
+    "name": "ig-teal-200",
+    "usage": "Engine accent ramp `teal`, step 200: palette() seeded with the teal accent of the previous system."
+   },
+   {
+    "name": "ig-teal-300",
+    "usage": "Engine accent ramp `teal`, step 300: palette() seeded with the teal accent of the previous system."
+   },
+   {
+    "name": "ig-teal-400",
+    "usage": "Engine accent ramp `teal`, step 400: palette() seeded with the teal accent of the previous system."
+   },
+   {
+    "name": "ig-teal-500",
+    "usage": "Engine accent ramp `teal`, step 500: palette() seeded with the teal accent of the previous system."
+   },
+   {
+    "name": "ig-teal-600",
+    "usage": "Engine accent ramp `teal`, step 600: palette() seeded with the teal accent of the previous system."
+   },
+   {
+    "name": "ig-teal-700",
+    "usage": "Engine accent ramp `teal`, step 700: palette() seeded with the teal accent of the previous system."
+   },
+   {
+    "name": "ig-teal-800",
+    "usage": "Engine accent ramp `teal`, step 800: palette() seeded with the teal accent of the previous system."
+   },
+   {
+    "name": "ig-teal-900",
+    "usage": "Engine accent ramp `teal`, step 900: palette() seeded with the teal accent of the previous system."
+   },
+   {
+    "name": "color-accent-blue",
+    "usage": "Brand accent blue: gradient start, icon tile fill, glow source. Not a CTA fill and never text on white."
+   },
+   {
+    "name": "color-accent-blue-hover",
+    "usage": "Hover step of `color-accent-blue`."
+   },
+   {
+    "name": "color-accent-blue-active",
+    "usage": "Press state step of `color-accent-blue`."
+   },
+   {
+    "name": "color-accent-violet",
+    "usage": "Gradient partner to `color-accent-blue` and the AI marker. Never a fill on its own."
+   },
+   {
+    "name": "color-accent-sky",
+    "usage": "On-dark accent only: stat numbers on `color-surface-inverse`. Never on white. Contrast 8.2:1 on `color-surface-inverse`."
+   },
+   {
+    "name": "color-accent-teal",
+    "usage": "On-dark accent only: performance stat numbers on `color-surface-inverse`. Never on white. Contrast 8.2:1 on `color-surface-inverse`."
+   },
+   {
+    "name": "color-action-default",
+    "usage": "The engine\u2019s primary seed itself (--ig-primary-seed), not a fitted shade. Every action: primary CTA fill (label `color-action-on`), in-page links and eyebrows on `color-surface-page` and `color-surface-tint`. Contrast 5.2:1 on `color-surface-page`, 4.8:1 on `color-surface-tint`, 5.2:1 on `color-surface-page`, 4.8:1 on `color-surface-tint`, 5.2:1 on `color-surface-page`."
+   },
+   {
+    "name": "color-action-hover",
+    "usage": "Link hover on light surfaces (colour shift only, no underline). Contrast 5.4:1 on `color-surface-page`."
+   },
+   {
+    "name": "color-action-fill-hover",
+    "usage": "Filled-button hover: the primary fill darkens to this and nothing else changes."
+   },
+   {
+    "name": "color-action-active",
+    "usage": "Inline link press state on light surfaces. Contrast 8.8:1 on `color-surface-page`."
+   },
+   {
+    "name": "color-action-on",
+    "usage": "Label and icon colour on `color-action-default` fills. Live value: the engine contrast colour of `ig-primary-600`. Contrast 5.2:1 on `color-action-default`."
+   },
+   {
+    "name": "color-link-utility",
+    "usage": "Links in the utility row above the nav, on `color-surface-page`. Contrast 5.4:1 on `color-surface-page`, 5.1:1 on `color-surface-subtle`."
+   },
+   {
+    "name": "color-link-utility-hover",
+    "usage": "Utility-row link hover."
+   },
+   {
+    "name": "color-link-inverse",
+    "usage": "Inline links on dark surfaces (`color-surface-inverse`). Contrast 8.2:1 on `color-surface-inverse`."
+   },
+   {
+    "name": "color-link-inverse-hover",
+    "usage": "Hover of `color-link-inverse`: colour shift only."
+   },
+   {
+    "name": "footer-link",
+    "usage": "Footer column links on the footer gradient. Contrast 11.1:1 on `ig-dark-surface-200`."
+   },
+   {
+    "name": "footer-link-hover",
+    "usage": "Footer link hover."
+   },
+   {
+    "name": "color-focus-default",
+    "usage": "Keyboard focus outline on light surfaces, `focus-ring-width` at `focus-ring-offset`, `:focus-visible` only. Contrast 5.2:1 on `color-surface-page`."
+   },
+   {
+    "name": "color-focus-inverse",
+    "usage": "Keyboard focus outline inside a `data-on-dark` section. Contrast 11.2:1 on `color-surface-inverse`, 11.2:1 on `color-surface-inverse`."
+   },
+   {
+    "name": "color-text-heading",
+    "usage": "Headlines h1\u2013h6 on `color-surface-page` and the catalog band. Contrast 17.8:1 on `color-surface-page`."
+   },
+   {
+    "name": "color-text-primary",
+    "usage": "Strong text and secondary-button labels on `color-surface-page`; the body default in base styles. Contrast 13.8:1 on `color-surface-page`."
+   },
+   {
+    "name": "color-text-secondary",
+    "usage": "Body and lead copy, utility-bar text and nav triggers at rest, on `color-surface-page` and `color-surface-subtle`. Contrast 7.5:1 on `color-surface-page`, 7.2:1 on `color-surface-subtle`, 7.5:1 on `color-surface-page`, 6.7:1 on `color-surface-muted`."
+   },
+   {
+    "name": "color-text-ui",
+    "usage": "UI text \u2014 nav, buttons, list rows, chips \u2014 on `color-surface-page`. Contrast 10.4:1 on `color-surface-page`, 9.9:1 on `color-surface-subtle`."
+   },
+   {
+    "name": "color-text-muted",
+    "usage": "Muted copy, nano labels, card descriptions and catalog counts; body copy never goes lighter. Contrast 4.9:1 on `color-surface-page`, 4.7:1 on `color-surface-subtle`, 4.9:1 on `color-surface-page`, 4.9:1 on `color-surface-card`, 4.6:1 on `color-surface-tint`, 4.9:1 on `color-surface-page`."
+   },
+   {
+    "name": "color-text-inverse",
+    "usage": "Text on `color-surface-inverse`. Contrast 17.3:1 on `color-surface-inverse`."
+   },
+   {
+    "name": "color-text-inverse-muted",
+    "usage": "Stat-badge labels and muted copy on `color-surface-inverse`. Contrast 7.2:1 on `color-surface-inverse`."
+   },
+   {
+    "name": "color-icon-subtle",
+    "usage": "The caret in the nav row (decorative, below the 3:1 icon floor, kept as in the source). Contrast 2.6:1 on `color-surface-page`."
+   },
+   {
+    "name": "color-feedback-error-default",
+    "usage": "Validation text and border on light surfaces. Contrast 7.3:1 on `color-surface-page`, 7.0:1 on `color-surface-subtle`."
+   },
+   {
+    "name": "color-feedback-error-inverse",
+    "usage": "Validation text and border on the dark footer. Contrast 5.3:1 on `ig-dark-surface-200`."
+   },
+   {
+    "name": "color-surface-page",
+    "usage": "Page background; flat."
+   },
+   {
+    "name": "color-surface-hero",
+    "usage": "Top of the hero wash (`gradient-hero`)."
+   },
+   {
+    "name": "color-surface-subtle",
+    "usage": "Alternating section bands, BrowserFrame title bar, callout strips and chips at rest."
+   },
+   {
+    "name": "color-surface-card",
+    "usage": "Marketing card fill."
+   },
+   {
+    "name": "color-surface-tint",
+    "usage": "Soft blue fill: tinted chips, callouts, the catalog band, release strip at rest and monogram badges."
+   },
+   {
+    "name": "color-surface-inverse",
+    "usage": "The one dark treatment: stat badges, table header and dark stat panels (the engine dark-variant surface)."
+   },
+   {
+    "name": "color-surface-tint-strong",
+    "usage": "Release strip on hover; also the open nav trigger."
+   },
+   {
+    "name": "color-surface-muted",
+    "usage": "\"Coming soon\" pill fill."
+   },
+   {
+    "name": "footer-background",
+    "usage": "Footer gradient end; flat fallback for `footer-background-gradient`."
+   },
+   {
+    "name": "footer-text",
+    "usage": "Footer body copy, legal links and social glyphs. Contrast 8.6:1 on `ig-dark-surface-200`."
+   },
+   {
+    "name": "footer-strong",
+    "usage": "Footer sub-group labels (Web, Desktop, Bundles) and legal-link emphasis. Contrast 14.5:1 on `ig-dark-surface-200`."
+   },
+   {
+    "name": "footer-heading",
+    "usage": "Footer 12px uppercase group labels, placeholder and copyright. Contrast 6.2:1 on `ig-dark-surface-200`."
+   },
+   {
+    "name": "footer-icon",
+    "usage": "Footer social icons. Contrast 8.6:1 on `ig-dark-surface-200`."
+   },
+   {
+    "name": "footer-focus",
+    "usage": "Keyboard focus ring inside the footer."
+   },
+   {
+    "name": "color-border-default",
+    "usage": "Hairline border on cards, chips and tinted chips; secondary-button border."
+   },
+   {
+    "name": "color-border-subtle",
+    "usage": "Hairline under the nav; default catalog-card border."
+   },
+   {
+    "name": "color-border-control",
+    "usage": "Border of a form control (input, checkbox) on light surfaces. 3:1 against the page, the WCAG 1.4.11 minimum. Contrast 4.9:1 on `color-surface-page`."
+   },
+   {
+    "name": "color-border-accent",
+    "usage": "Blue-tinted borders: soft blue fills, outline buttons and the release label."
+   },
+   {
+    "name": "badge-bundle-background",
+    "usage": "Bundle badge fill (top-right of a ProductCard)."
+   },
+   {
+    "name": "badge-bundle-color",
+    "usage": "Bundle badge label on `badge-bundle-background`. Contrast 6.6:1 on `badge-bundle-background`."
+   },
+   {
+    "name": "badge-oss-color",
+    "usage": "OSS tag label on `badge-oss-background`. Contrast 7.3:1 on `color-surface-page`."
+   },
+   {
+    "name": "table-mark-yes-background",
+    "usage": "Comparison table \"Yes\" mark fill."
+   },
+   {
+    "name": "table-mark-yes-color",
+    "usage": "Comparison table \"Yes\" mark glyph. Contrast 8.5:1 on `table-mark-yes-background`."
+   },
+   {
+    "name": "table-mark-partial-background",
+    "usage": "Comparison table \"Partial\" and \"Gated\" mark fill."
+   },
+   {
+    "name": "table-mark-partial-color",
+    "usage": "Comparison table \"Partial\" and \"Gated\" mark glyph. Contrast 8.4:1 on `table-mark-partial-background`."
+   },
+   {
+    "name": "table-mark-no-background",
+    "usage": "Comparison table \"No\" mark fill."
+   },
+   {
+    "name": "table-mark-no-color",
+    "usage": "Comparison table \"No\" mark glyph. Contrast 6.7:1 on `table-mark-no-background`."
+   },
+   {
+    "name": "table-header-sub-color",
+    "usage": "Sub-label under a comparison column name, on `color-surface-inverse`. Contrast 7.2:1 on `color-surface-inverse`."
+   },
+   {
+    "name": "table-header-sub-highlight-color",
+    "usage": "Sub-label on the highlighted column header (`color-action-default` fill). Contrast 4.8:1 on `color-action-default`."
+   },
+   {
+    "name": "table-header-detail-color",
+    "usage": "The \"Detail\" column header on `color-surface-inverse`. Contrast 12.7:1 on `color-surface-inverse`."
+   },
+   {
+    "name": "window-dot-red",
+    "usage": "BrowserFrame window dot."
+   },
+   {
+    "name": "window-dot-amber",
+    "usage": "BrowserFrame window dot."
+   },
+   {
+    "name": "window-dot-green",
+    "usage": "BrowserFrame window dot."
+   },
+   {
+    "name": "fw-angular-color",
+    "usage": "Angular framework base colour. The pill fill and border derive from it."
+   },
+   {
+    "name": "fw-react-color",
+    "usage": "React framework base colour. The pill fill and border derive from it."
+   },
+   {
+    "name": "fw-angular-background",
+    "usage": "Angular framework pill fill; holds on hover."
+   },
+   {
+    "name": "fw-angular-border",
+    "usage": "Angular framework pill border."
+   },
+   {
+    "name": "fw-react-background",
+    "usage": "React framework pill fill."
+   },
+   {
+    "name": "fw-react-border",
+    "usage": "React framework pill border."
+   },
+   {
+    "name": "fw-webcomponents-background",
+    "usage": "Web Components framework pill fill."
+   },
+   {
+    "name": "fw-webcomponents-border",
+    "usage": "Web Components framework pill border."
+   },
+   {
+    "name": "fw-winforms-background",
+    "usage": "Windows Forms framework pill fill (shares the Web Components tint)."
+   },
+   {
+    "name": "fw-winforms-border",
+    "usage": "Windows Forms framework pill border."
+   },
+   {
+    "name": "fw-blazor-background",
+    "usage": "Blazor framework pill fill."
+   },
+   {
+    "name": "fw-blazor-border",
+    "usage": "Blazor framework pill border."
+   },
+   {
+    "name": "fw-wpf-background",
+    "usage": "WPF framework pill fill."
+   },
+   {
+    "name": "fw-wpf-border",
+    "usage": "WPF framework pill border."
+   },
+   {
+    "name": "tile-blue",
+    "usage": "Icon tile fill \u2014 CLI MCP on the AI toolchain row. Flat, never a gradient; white glyph."
+   },
+   {
+    "name": "tile-violet",
+    "usage": "Icon tile fill \u2014 Agent Skills on the AI toolchain row."
+   },
+   {
+    "name": "tile-pink",
+    "usage": "Icon tile fill \u2014 Theming MCP on the AI toolchain row."
+   },
+   {
+    "name": "tile-teal",
+    "usage": "Icon tile fill \u2014 AI Scaffolding on the AI toolchain row."
+   },
+   {
+    "name": "tile-cyan",
+    "usage": "Extended icon tile fill for grids longer than four tiles."
+   },
+   {
+    "name": "tile-amber",
+    "usage": "Extended icon tile fill for grids longer than four tiles."
+   },
+   {
+    "name": "tile-royal",
+    "usage": "Extended icon tile fill for grids longer than four tiles."
+   },
+   {
+    "name": "tile-ink",
+    "usage": "Extended icon tile fill for grids longer than four tiles."
+   },
+   {
+    "name": "color-action-subtle",
+    "usage": "Tinted capsule fill behind `color-action-default` text. Live: `color-action-default` at `opacity-subtle`."
+   },
+   {
+    "name": "color-action-subtle-border",
+    "usage": "Border of the `color-action-subtle` capsule. Live: `color-action-default` at `opacity-strong`."
+   },
+   {
+    "name": "color-emphasis-border",
+    "usage": "Border of emphasised cards and the release strip at rest. Live: `color-accent-blue` at `opacity-heavy`."
+   },
+   {
+    "name": "color-emphasis-ring",
+    "usage": "Inner ring of the release strip at rest. Live: `color-accent-blue` at `opacity-soft`."
+   },
+   {
+    "name": "color-emphasis-ring-hover",
+    "usage": "Inner ring of the release strip on hover. Live: `color-accent-blue` at `opacity-strong`."
+   },
+   {
+    "name": "badge-oss-background",
+    "usage": "OSS tag fill. Live: `badge-oss-color` at `opacity-soft`."
+   },
+   {
+    "name": "nav-background",
+    "usage": "Sticky nav background, under `nav-backdrop-blur`. Live: `color-surface-page` at `opacity-nav`."
+   },
+   {
+    "name": "color-overlay-scrim",
+    "usage": "Page dimmer behind an open nav panel. Live: `color-surface-inverse` at `opacity-strong`."
+   },
+   {
+    "name": "footer-rule",
+    "usage": "Footer hairline rules. Live: `color-text-inverse` at `opacity-subtle`."
+   },
+   {
+    "name": "footer-rule-strong",
+    "usage": "Footer legal-link dividers and form control borders. Live: `color-text-inverse` at `opacity-muted`."
+   },
+   {
+    "name": "footer-card-border",
+    "usage": "Border of the footer newsletter card. Live: `color-text-inverse` at `opacity-subtle`."
+   },
+   {
+    "name": "footer-field-background",
+    "usage": "Footer input fill (stacked newsletter). Live: `color-text-inverse` at `opacity-subtle`."
+   },
+   {
+    "name": "footer-field-pill-background",
+    "usage": "Footer input fill inside the pill field. Live: `footer-background` at `opacity-field`."
+   },
+   {
+    "name": "footer-check-background",
+    "usage": "Footer checkbox fill, unchecked. Live: `color-text-inverse` at `opacity-faint`."
+   },
+   {
+    "name": "footer-check-border",
+    "usage": "Footer checkbox border, unchecked. Live: `color-text-inverse` at `opacity-heavy`."
+   },
+   {
+    "name": "footer-social-hover-background",
+    "usage": "Social button fill on hover. Live: `color-link-inverse` at `opacity-muted`."
+   },
+   {
+    "name": "footer-social-hover-border",
+    "usage": "Social button border on hover. Live: `color-focus-inverse` at `opacity-heavy`."
+   }
+  ]
+ }
+}

@@ -1,0 +1,232 @@
+{
+  "color-action-text": {
+    "base": "color-action-default",
+    "maxL": 0.5466
+  },
+  "color-action-fill-hover": {
+    "base": "color-action-default",
+    "dl": -0.0719,
+    "kc": 0.8229,
+    "dh": 0.07
+  },
+  "color-action-active": {
+    "base": "color-action-default",
+    "dl": -0.1271,
+    "kc": 0.6811,
+    "dh": -0.15
+  },
+  "color-action-hover": {
+    "base": "color-action-text",
+    "dl": -0.0225,
+    "kc": 0.5758,
+    "dh": -13.81
+  },
+  "color-link-utility": {
+    "base": "color-action-text",
+    "dl": -0.0225,
+    "kc": 0.5758,
+    "dh": -13.81
+  },
+  "color-surface-tint": {
+    "base": "color-action-default",
+    "l": 0.9717,
+    "kc": 0.0436,
+    "dh": 17.61
+  },
+  "color-surface-tint-strong": {
+    "base": "color-action-default",
+    "l": 0.9395,
+    "kc": 0.1176,
+    "dh": 12.29
+  },
+  "color-border-accent": {
+    "base": "color-action-default",
+    "l": 0.881,
+    "kc": 0.236,
+    "dh": 10.49
+  },
+  "table-header-sub-highlight-color": {
+    "base": "color-action-default",
+    "l": 0.9717,
+    "kc": 0.0436,
+    "dh": 17.61
+  },
+  "color-accent-blue-hover": {
+    "base": "color-accent-blue",
+    "dl": -0.0722,
+    "kc": 0.8392,
+    "dh": 0.16
+  },
+  "color-accent-blue-active": {
+    "base": "color-accent-blue",
+    "dl": -0.145,
+    "kc": 0.7697,
+    "dh": 0.25
+  },
+  "color-link-inverse-hover": {
+    "base": "color-link-inverse",
+    "dl": 0.2371,
+    "kc": 0,
+    "dh": 0
+  },
+  "color-focus-inverse": {
+    "base": "color-link-inverse",
+    "dl": 0.0909,
+    "kc": 0.6634,
+    "dh": -0.39
+  },
+  "footer-focus": {
+    "base": "color-link-inverse",
+    "dl": 0.0909,
+    "kc": 0.6634,
+    "dh": -0.39
+  },
+  "footer-link-hover": {
+    "base": "footer-link",
+    "dl": 0.1009,
+    "kc": 0,
+    "dh": 0
+  },
+  "color-feedback-error-inverse": {
+    "base": "color-feedback-error-default",
+    "dl": 0.2216,
+    "kc": 1.0391,
+    "dh": 0.01
+  },
+  "badge-bundle-background": {
+    "base": "badge-bundle-color",
+    "l": 0.9755,
+    "kc": 0.0507,
+    "dh": 5.81
+  },
+  "fw-angular-background": {
+    "base": "fw-angular-color",
+    "l": 0.946,
+    "kc": 0.1342,
+    "dh": 6.18
+  },
+  "fw-angular-border": {
+    "base": "fw-angular-color",
+    "l": 0.8563,
+    "kc": 0.4165,
+    "dh": 4.89
+  },
+  "fw-react-background": {
+    "base": "fw-react-color",
+    "l": 0.9392,
+    "kc": 0.3684,
+    "dh": 2.63
+  },
+  "fw-react-border": {
+    "base": "fw-react-color",
+    "l": 0.8371,
+    "kc": 1.0737,
+    "dh": 0.47
+  },
+  "fw-blazor-background": {
+    "base": "color-accent-violet",
+    "l": 0.9755,
+    "kc": 0.0395,
+    "dh": 6.03
+  },
+  "fw-blazor-border": {
+    "base": "color-accent-violet",
+    "l": 0.904,
+    "kc": 0.2125,
+    "dh": 6.41
+  },
+  "fw-webcomponents-background": {
+    "base": "color-action-default",
+    "l": 0.9717,
+    "kc": 0.0436,
+    "dh": 17.61
+  },
+  "fw-webcomponents-border": {
+    "base": "color-action-default",
+    "l": 0.881,
+    "kc": 0.236,
+    "dh": 10.49
+  },
+  "fw-winforms-background": {
+    "base": "color-action-default",
+    "l": 0.9717,
+    "kc": 0.0436,
+    "dh": 17.61
+  },
+  "fw-winforms-border": {
+    "base": "color-action-default",
+    "l": 0.881,
+    "kc": 0.236,
+    "dh": 10.49
+  },
+  "fw-wpf-background": {
+    "base": "color-action-default",
+    "l": 0.9395,
+    "kc": 0.1176,
+    "dh": 12.29
+  },
+  "fw-wpf-border": {
+    "base": "color-action-default",
+    "l": 0.881,
+    "kc": 0.236,
+    "dh": 10.49
+  },
+  "table-mark-partial-background": {
+    "base": "table-mark-partial-color",
+    "l": 0.85,
+    "kc": 1.7546,
+    "dh": -0.29
+  },
+  "footer-heading": {
+    "base": "footer-text",
+    "dl": -0.0907,
+    "kc": 1.3685,
+    "dh": -5.88
+  },
+  "footer-link": {
+    "base": "footer-text",
+    "dl": 0.0778,
+    "kc": 0.5091,
+    "dh": -4.35
+  },
+  "footer-strong": {
+    "base": "footer-text",
+    "dl": 0.1662,
+    "kc": 0.1365,
+    "dh": 0
+  },
+  "color-text-inverse-muted": {
+    "base": "color-text-inverse",
+    "dl": -0.2694,
+    "kc": 1,
+    "dh": 0
+  },
+  "color-link-utility-hover": {
+    "base": "color-action-text",
+    "alias": true
+  },
+  "color-focus-default": {
+    "base": "color-action-text",
+    "alias": true
+  },
+  "tile-blue": {
+    "base": "color-accent-blue",
+    "alias": true
+  },
+  "tile-violet": {
+    "base": "color-accent-violet",
+    "alias": true
+  },
+  "tile-royal": {
+    "base": "color-action-default",
+    "alias": true
+  },
+  "color-link-inverse": {
+    "base": "color-accent-sky",
+    "alias": true
+  },
+  "footer-icon": {
+    "base": "footer-text",
+    "alias": true
+  }
+}

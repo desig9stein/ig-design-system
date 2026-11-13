@@ -1,0 +1,5 @@
+node_modules/
+.cache/
+reports/mcp-typography.txt
+reports/mcp-elevations.txt
+*.map

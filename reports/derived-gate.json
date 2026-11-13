@@ -1,0 +1,209 @@
+{
+ "stateTokens": 25,
+ "derivedTokens": 41,
+ "pairGroups": 12,
+ "rows": [
+  [
+   "callout-release-shadow-hover",
+   "derived from color-action-default, color-accent-blue",
+   1
+  ],
+  [
+   "color-accent-blue",
+   "base",
+   1
+  ],
+  [
+   "color-accent-sky",
+   "base",
+   2
+  ],
+  [
+   "color-action-default",
+   "base",
+   6
+  ],
+  [
+   "color-action-fill-hover",
+   "derived from color-action-default",
+   2
+  ],
+  [
+   "color-action-hover",
+   "derived from color-action-default, color-action-text",
+   2
+  ],
+  [
+   "color-action-on",
+   "derived from color-action-default",
+   1
+  ],
+  [
+   "color-action-text",
+   "base",
+   7
+  ],
+  [
+   "color-border-accent",
+   "derived from color-action-default",
+   1
+  ],
+  [
+   "color-feedback-error-default",
+   "base",
+   2
+  ],
+  [
+   "color-feedback-error-inverse",
+   "derived from color-feedback-error-default",
+   2
+  ],
+  [
+   "color-surface-subtle",
+   "base",
+   2
+  ],
+  [
+   "color-surface-tint",
+   "derived from color-action-default",
+   3
+  ],
+  [
+   "color-surface-tint-strong",
+   "derived from color-action-default",
+   1
+  ],
+  [
+   "color-text-heading",
+   "base",
+   1
+  ],
+  [
+   "color-text-inverse",
+   "base",
+   3
+  ],
+  [
+   "color-text-muted",
+   "base",
+   1
+  ],
+  [
+   "footer-focus",
+   "derived from color-accent-sky, color-link-inverse",
+   1
+  ],
+  [
+   "footer-heading",
+   "base",
+   1
+  ],
+  [
+   "footer-social-hover-background",
+   "derived from color-accent-sky, color-link-inverse",
+   1
+  ],
+  [
+   "footer-social-hover-border",
+   "derived from color-accent-sky, color-link-inverse",
+   1
+  ],
+  [
+   "footer-text",
+   "base",
+   1
+  ],
+  [
+   "shadow-accent-lg",
+   "derived from color-action-default",
+   1
+  ],
+  [
+   "shadow-accent-sm",
+   "derived from color-action-default",
+   1
+  ],
+  [
+   "shadow-raised",
+   "base",
+   2
+  ]
+ ],
+ "pairs": [
+  [
+   "color-accent-blue",
+   3,
+   [
+    "color-accent-blue"
+   ]
+  ],
+  [
+   "color-action",
+   6,
+   [
+    "color-action-default"
+   ]
+  ],
+  [
+   "color-link-utility",
+   2,
+   []
+  ],
+  [
+   "color-focus",
+   2,
+   []
+  ],
+  [
+   "color-feedback-error",
+   2,
+   [
+    "color-feedback-error-default"
+   ]
+  ],
+  [
+   "badge-oss",
+   2,
+   [
+    "badge-oss-color"
+   ]
+  ],
+  [
+   "table-mark-partial",
+   2,
+   [
+    "table-mark-partial-color"
+   ]
+  ],
+  [
+   "fw-angular",
+   3,
+   [
+    "fw-angular-color"
+   ]
+  ],
+  [
+   "fw-react",
+   3,
+   [
+    "fw-react-color"
+   ]
+  ],
+  [
+   "fw-wpf",
+   2,
+   []
+  ],
+  [
+   "color-emphasis",
+   2,
+   []
+  ],
+  [
+   "footer-social-hover",
+   2,
+   []
+  ]
+ ],
+ "fail": 0
+}

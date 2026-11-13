@@ -1,0 +1,149 @@
+[
+ {
+  "tool": "create_typography",
+  "input": {
+   "platform": "generic",
+   "output": "css",
+   "designSystem": "indigo",
+   "fontFamily": "'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+   "customScale": {
+    "h1": {
+     "fontSize": "4.375rem",
+     "fontWeight": 900,
+     "lineHeight": "4.9rem",
+     "letterSpacing": "-0.0257em",
+     "textTransform": "none"
+    },
+    "h2": {
+     "fontSize": "2.6875rem",
+     "fontWeight": 800,
+     "lineHeight": "2.8488rem",
+     "letterSpacing": "-0.0256em",
+     "textTransform": "none"
+    },
+    "h3": {
+     "fontSize": "1.6875rem",
+     "fontWeight": 800,
+     "lineHeight": "2.025rem",
+     "letterSpacing": "-0.0222em",
+     "textTransform": "none"
+    },
+    "h4": {
+     "fontSize": "1.3125rem",
+     "fontWeight": 800,
+     "lineHeight": "1.4438rem",
+     "letterSpacing": "0",
+     "textTransform": "none"
+    },
+    "h5": {
+     "fontSize": "1rem",
+     "fontWeight": 600,
+     "lineHeight": "1.4rem",
+     "letterSpacing": "0",
+     "textTransform": "none"
+    },
+    "h6": {
+     "fontSize": "1.125rem",
+     "fontWeight": 800,
+     "lineHeight": "1.4625rem",
+     "letterSpacing": "-0.0167em",
+     "textTransform": "none"
+    },
+    "subtitle-1": {
+     "fontSize": "1.25rem",
+     "fontWeight": 400,
+     "lineHeight": "2rem",
+     "letterSpacing": "0",
+     "textTransform": "none"
+    },
+    "subtitle-2": {
+     "fontSize": "1.0625rem",
+     "fontWeight": 700,
+     "lineHeight": "1.5938rem",
+     "letterSpacing": "0",
+     "textTransform": "none"
+    },
+    "body-1": {
+     "fontSize": "1.1875rem",
+     "fontWeight": 400,
+     "lineHeight": "1.9238rem",
+     "letterSpacing": "0",
+     "textTransform": "none"
+    },
+    "body-2": {
+     "fontSize": "0.9375rem",
+     "fontWeight": 400,
+     "lineHeight": "1.4063rem",
+     "letterSpacing": "0",
+     "textTransform": "none"
+    },
+    "button": {
+     "fontSize": "0.9375rem",
+     "fontWeight": 600,
+     "lineHeight": "1.4063rem",
+     "letterSpacing": "0",
+     "textTransform": "none"
+    },
+    "caption": {
+     "fontSize": "0.875rem",
+     "fontWeight": 400,
+     "lineHeight": "1.3562rem",
+     "letterSpacing": "0",
+     "textTransform": "none"
+    },
+    "overline": {
+     "fontSize": "0.75rem",
+     "fontWeight": 600,
+     "lineHeight": "1.125rem",
+     "letterSpacing": "0.16em",
+     "textTransform": "uppercase"
+    },
+    "detail-1": {
+     "fontSize": "0.8125rem",
+     "fontWeight": 400,
+     "lineHeight": "1.2188rem",
+     "letterSpacing": "0",
+     "textTransform": "none"
+    },
+    "detail-2": {
+     "fontSize": "0.6875rem",
+     "fontWeight": 400,
+     "lineHeight": "0.9625rem",
+     "letterSpacing": "0",
+     "textTransform": "none"
+    }
+   },
+   "name": "ig-type"
+  }
+ },
+ {
+  "tool": "create_elevations",
+  "input": {
+   "platform": "generic",
+   "output": "css",
+   "designSystem": "indigo",
+   "name": "ig-elev"
+  }
+ },
+ {
+  "tool": "set_size",
+  "input": {
+   "platform": "generic",
+   "size": "large"
+  }
+ },
+ {
+  "tool": "set_spacing",
+  "input": {
+   "platform": "generic",
+   "spacing": 1
+  }
+ },
+ {
+  "tool": "set_roundness",
+  "input": {
+   "platform": "generic",
+   "radiusFactor": 1
+  }
+ }
+]

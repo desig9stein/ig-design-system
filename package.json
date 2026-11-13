@@ -1,0 +1,29 @@
+{
+  "name": "ig-design-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Infragistics design system: design tokens generated with igniteui-theming, plus the checks that keep sites consistent.",
+  "type": "module",
+  "files": ["dist"],
+  "exports": {
+    "./tokens.css": "./dist/tokens.css",
+    "./theme.css": "./dist/theme.css",
+    "./tokens.json": "./dist/tokens.json",
+    "./tokens.dtcg.json": "./dist/infragistics.tokens.json",
+    "./seed.js": "./dist/seed.js"
+  },
+  "scripts": {
+    "build": "node src/make.mjs && node src/dtcg.mjs dist/tokens.json dist/theme.css dist/infragistics.tokens.json && node src/migration.mjs docs/MIGRATION.md && node -e \"require('fs').copyFileSync('src/seed.js','dist/seed.js')\"",
+    "check": "node checks/lint.mjs reference/components && node checks/check-vars.mjs dist/tokens.css dist/theme.css reference && node checks/spacing-roles.mjs reference && node checks/gates-derived.cjs && node checks/gates-themes.cjs",
+    "test": "npm run build && npm run check",
+    "palettes": "node src/palettes.mjs"
+  },
+  "dependencies": {
+    "igniteui-theming": "^30.2.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "playwright": "1.63.0",
+    "sass": "^1.108.1"
+  }
+}

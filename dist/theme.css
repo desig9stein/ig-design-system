@@ -1,0 +1,917 @@
+/* Infragistics Marketing Design System — theme.css
+   Loaded after tokens.css. This file is the live layer of the igniteui-theming engine:
+   1. the engine's own variables (--ig-*): sizing, spacing, roundness, elevations, typography, contrast;
+   2. the tokens that must stay live — spacing, sizes, radii, shadows, gradients, translucent colours —
+      declared again with the same names as tokens.json, so --ig-size, --ig-spacing, --ig-radius-factor,
+      --ig-elevation-factor and palette edits cascade. At the default knob values they equal tokens.json;
+   3. the semantic type variables and classes (.type-<slot>), motion, and base element styles.
+   Nothing in a component may carry a literal colour, length, font size, shadow or radius: it reads a token. */
+
+/* ===== 1. igniteui-theming engine layer ===== */
+/* knobs (set_size large, set_spacing 1, set_roundness 1 as called through the MCP) */
+:root {
+  --ig-size: 3;
+  --ig-spacing: 1;
+  --ig-elevation-factor: 1;
+  /* --ig-radius-factor is left unset: each radius role then takes its own design value. Set it from 0 (each role's minimum) to 1 (each role's maximum). */
+}
+/* contrast colours, exactly as the engine's palette() emits them */
+:root, [data-theme] {
+  --ig-wcag-a: 0.31;
+  --ig-wcag-aa: 0.185;
+  --ig-wcag-aaa: 0.178;
+  --ig-contrast-level: var(--ig-wcag-aa);
+  --y: clamp(0, (y / var(--ig-contrast-level) - 1) * -infinity, 1);
+  --y-contrast: xyz-d65 var(--y) var(--y) var(--y);
+  --ig-primary-600-contrast: hsla(from color(from var(--ig-primary-600) var(--y-contrast)) h 0 l/1);
+  --color-action-on: var(--ig-primary-600-contrast);
+}
+/* sizing, spacing, roundness, easing and neutral elevations: compiled from the engine's sizable(), pad(), border-radius() */
+:root, [data-size] {
+  --ig-size-small: 1;
+  --ig-size-medium: 2;
+  --ig-size-large: 3;
+  --component-size: var(--ig-size, var(--ig-size-large));
+  --is-large: clamp(0, (var(--component-size, 1) + 1) - var(--ig-size-large, 3), 1);
+  --is-medium: min(
+      clamp(0, (var(--component-size, 1) + 1) - var(--ig-size-medium, 2), 1),
+      clamp(0, var(--ig-size-large, 3) - var(--component-size, 1), 1)
+  );
+  --is-small: clamp(0, var(--ig-size-medium, 2) - var(--component-size, 1), 1);
+  --space-3xs: max(var(--is-large, 1) * 0.125rem * var(--ig-spacing-large, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-medium, 1) * 0.109375rem * var(--ig-spacing-medium, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-small, 1) * 0.09375rem * var(--ig-spacing-small, var(--ig-spacing, var(--ig-spacing, 1))));
+  --space-2xs: max(var(--is-large, 1) * 0.25rem * var(--ig-spacing-large, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-medium, 1) * 0.21875rem * var(--ig-spacing-medium, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-small, 1) * 0.1875rem * var(--ig-spacing-small, var(--ig-spacing, var(--ig-spacing, 1))));
+  --space-xs: max(var(--is-large, 1) * 0.5rem * var(--ig-spacing-large, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-medium, 1) * 0.4375rem * var(--ig-spacing-medium, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-small, 1) * 0.375rem * var(--ig-spacing-small, var(--ig-spacing, var(--ig-spacing, 1))));
+  --space-sm: max(var(--is-large, 1) * 0.75rem * var(--ig-spacing-large, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-medium, 1) * 0.65625rem * var(--ig-spacing-medium, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-small, 1) * 0.5625rem * var(--ig-spacing-small, var(--ig-spacing, var(--ig-spacing, 1))));
+  --space-md: max(var(--is-large, 1) * 1rem * var(--ig-spacing-large, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-medium, 1) * 0.875rem * var(--ig-spacing-medium, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-small, 1) * 0.75rem * var(--ig-spacing-small, var(--ig-spacing, var(--ig-spacing, 1))));
+  --space-lg: max(var(--is-large, 1) * 1.25rem * var(--ig-spacing-large, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-medium, 1) * 1.09375rem * var(--ig-spacing-medium, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-small, 1) * 0.9375rem * var(--ig-spacing-small, var(--ig-spacing, var(--ig-spacing, 1))));
+  --space-xl: max(var(--is-large, 1) * 1.5rem * var(--ig-spacing-large, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-medium, 1) * 1.3125rem * var(--ig-spacing-medium, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-small, 1) * 1.125rem * var(--ig-spacing-small, var(--ig-spacing, var(--ig-spacing, 1))));
+  --space-2xl: max(var(--is-large, 1) * 2rem * var(--ig-spacing-large, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-medium, 1) * 1.75rem * var(--ig-spacing-medium, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-small, 1) * 1.5rem * var(--ig-spacing-small, var(--ig-spacing, var(--ig-spacing, 1))));
+  --space-3xl: max(var(--is-large, 1) * 2.5rem * var(--ig-spacing-large, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-medium, 1) * 2.1875rem * var(--ig-spacing-medium, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-small, 1) * 1.875rem * var(--ig-spacing-small, var(--ig-spacing, var(--ig-spacing, 1))));
+  --space-4xl: max(var(--is-large, 1) * 3rem * var(--ig-spacing-large, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-medium, 1) * 2.625rem * var(--ig-spacing-medium, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-small, 1) * 2.25rem * var(--ig-spacing-small, var(--ig-spacing, var(--ig-spacing, 1))));
+  --space-5xl: max(var(--is-large, 1) * 4rem * var(--ig-spacing-large, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-medium, 1) * 3.5rem * var(--ig-spacing-medium, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-small, 1) * 3rem * var(--ig-spacing-small, var(--ig-spacing, var(--ig-spacing, 1))));
+  --space-6xl: max(var(--is-large, 1) * 6.5rem * var(--ig-spacing-large, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-medium, 1) * 5.6875rem * var(--ig-spacing-medium, var(--ig-spacing, var(--ig-spacing, 1))), var(--is-small, 1) * 4.875rem * var(--ig-spacing-small, var(--ig-spacing, var(--ig-spacing, 1))));
+  --space-inset-3xs: var(--space-3xs);
+  --space-inset-2xs: var(--space-2xs);
+  --space-inset-xs: var(--space-xs);
+  --space-inset-sm: var(--space-sm);
+  --space-inset-md: var(--space-md);
+  --space-inset-lg: var(--space-lg);
+  --space-inset-xl: var(--space-xl);
+  --space-inset-2xl: var(--space-2xl);
+  --space-inset-3xl: var(--space-3xl);
+  --space-inset-4xl: var(--space-4xl);
+  --space-inset-5xl: var(--space-5xl);
+  --space-stack-3xs: var(--space-3xs);
+  --space-stack-2xs: var(--space-2xs);
+  --space-stack-xs: var(--space-xs);
+  --space-stack-sm: var(--space-sm);
+  --space-stack-md: var(--space-md);
+  --space-stack-lg: var(--space-lg);
+  --space-stack-xl: var(--space-xl);
+  --space-stack-2xl: var(--space-2xl);
+  --space-stack-3xl: var(--space-3xl);
+  --space-stack-4xl: var(--space-4xl);
+  --space-stack-5xl: var(--space-5xl);
+  --space-gap-3xs: var(--space-3xs);
+  --space-gap-2xs: var(--space-2xs);
+  --space-gap-xs: var(--space-xs);
+  --space-gap-sm: var(--space-sm);
+  --space-gap-md: var(--space-md);
+  --space-gap-lg: var(--space-lg);
+  --space-gap-xl: var(--space-xl);
+  --space-gap-2xl: var(--space-2xl);
+  --space-gap-3xl: var(--space-3xl);
+  --space-gap-4xl: var(--space-4xl);
+  --space-gap-5xl: var(--space-5xl);
+  --border-width-default: max(var(--is-large, 1) * 0.0625rem, var(--is-medium, 1) * 0.0546875rem, var(--is-small, 1) * 0.046875rem);
+  --border-width-strong: max(var(--is-large, 1) * 0.09375rem, var(--is-medium, 1) * 0.08203125rem, var(--is-small, 1) * 0.0703125rem);
+  --focus-ring-width: max(var(--is-large, 1) * 0.1875rem, var(--is-medium, 1) * 0.1640625rem, var(--is-small, 1) * 0.140625rem);
+  --focus-ring-offset: max(var(--is-large, 1) * 0.125rem, var(--is-medium, 1) * 0.109375rem, var(--is-small, 1) * 0.09375rem);
+  --window-dot-size: max(var(--is-large, 1) * 0.6875rem, var(--is-medium, 1) * 0.6015625rem, var(--is-small, 1) * 0.515625rem);
+  --size-icon-stroke: max(var(--is-large, 1) * 0.1375rem, var(--is-medium, 1) * 0.1203125rem, var(--is-small, 1) * 0.103125rem);
+  --size-icon-stroke-strong: max(var(--is-large, 1) * 0.1875rem, var(--is-medium, 1) * 0.1640625rem, var(--is-small, 1) * 0.140625rem);
+  --size-icon-xs: max(var(--is-large, 1) * 0.75rem, var(--is-medium, 1) * 0.65625rem, var(--is-small, 1) * 0.5625rem);
+  --size-icon-sm: max(var(--is-large, 1) * 0.875rem, var(--is-medium, 1) * 0.765625rem, var(--is-small, 1) * 0.65625rem);
+  --size-icon-md: max(var(--is-large, 1) * 1rem, var(--is-medium, 1) * 0.875rem, var(--is-small, 1) * 0.75rem);
+  --size-icon-lg: max(var(--is-large, 1) * 1.25rem, var(--is-medium, 1) * 1.09375rem, var(--is-small, 1) * 0.9375rem);
+  --size-control-sm: max(var(--is-large, 1) * 2.25rem, var(--is-medium, 1) * 1.96875rem, var(--is-small, 1) * 1.6875rem);
+  --size-control-md: max(var(--is-large, 1) * 2.5rem, var(--is-medium, 1) * 2.1875rem, var(--is-small, 1) * 1.875rem);
+  --size-control-lg: max(var(--is-large, 1) * 2.75rem, var(--is-medium, 1) * 2.40625rem, var(--is-small, 1) * 2.0625rem);
+  --size-control-xl: max(var(--is-large, 1) * 3rem, var(--is-medium, 1) * 2.625rem, var(--is-small, 1) * 2.25rem);
+  --nav-height: max(var(--is-large, 1) * 4.375rem, var(--is-medium, 1) * 3.828125rem, var(--is-small, 1) * 3.28125rem);
+  --badge-mono-size: max(var(--is-large, 1) * 2rem, var(--is-medium, 1) * 1.75rem, var(--is-small, 1) * 1.5rem);
+  --size-tile: max(var(--is-large, 1) * 2.75rem, var(--is-medium, 1) * 2.40625rem, var(--is-small, 1) * 2.0625rem);
+  --fw-logo-height: max(var(--is-large, 1) * 1rem, var(--is-medium, 1) * 0.875rem, var(--is-small, 1) * 0.75rem);
+  --logo-height: max(var(--is-large, 1) * 1.5rem, var(--is-medium, 1) * 1.3125rem, var(--is-small, 1) * 1.125rem);
+  --product-logo-height: max(var(--is-large, 1) * 1.625rem, var(--is-medium, 1) * 1.421875rem, var(--is-small, 1) * 1.21875rem);
+  --product-logo-max-width: max(var(--is-large, 1) * 10rem, var(--is-medium, 1) * 8.75rem, var(--is-small, 1) * 7.5rem);
+  --stat-badge-offset: max(var(--is-large, 1) * 1.125rem, var(--is-medium, 1) * 0.984375rem, var(--is-small, 1) * 0.84375rem);
+  --stat-badge-inset: max(var(--is-large, 1) * 1.5rem, var(--is-medium, 1) * 1.3125rem, var(--is-small, 1) * 1.125rem);
+  --glow-size-lg: max(var(--is-large, 1) * 47.5rem, var(--is-medium, 1) * 41.5625rem, var(--is-small, 1) * 35.625rem);
+  --glow-size-md: max(var(--is-large, 1) * 40rem, var(--is-medium, 1) * 35rem, var(--is-small, 1) * 30rem);
+  --field-min-width: max(var(--is-large, 1) * 13.75rem, var(--is-medium, 1) * 12.03125rem, var(--is-small, 1) * 10.3125rem);
+  --callout-min-width: max(var(--is-large, 1) * 13.75rem, var(--is-medium, 1) * 12.03125rem, var(--is-small, 1) * 10.3125rem);
+  --callout-max-width: max(var(--is-large, 1) * 67.5rem, var(--is-medium, 1) * 59.0625rem, var(--is-small, 1) * 50.625rem);
+  --newsletter-min-width: max(var(--is-large, 1) * 20rem, var(--is-medium, 1) * 17.5rem, var(--is-small, 1) * 15rem);
+  --footer-column-min-width: max(var(--is-large, 1) * 11.25rem, var(--is-medium, 1) * 9.84375rem, var(--is-small, 1) * 8.4375rem);
+  --nav-panel-max-width: max(var(--is-large, 1) * 80rem, var(--is-medium, 1) * 70rem, var(--is-small, 1) * 60rem);
+  --bleed-width: max(var(--is-large, 1) * 73.75rem, var(--is-medium, 1) * 64.53125rem, var(--is-small, 1) * 55.3125rem);
+  --container-max-width: max(var(--is-large, 1) * 80rem, var(--is-medium, 1) * 70rem, var(--is-small, 1) * 60rem);
+  --container-hero-max-width: max(var(--is-large, 1) * 70rem, var(--is-medium, 1) * 61.25rem, var(--is-small, 1) * 52.5rem);
+  --container-prose-max-width: max(var(--is-large, 1) * 55rem, var(--is-medium, 1) * 48.125rem, var(--is-small, 1) * 41.25rem);
+  --catalog-card-min-width: max(var(--is-large, 1) * 21.25rem, var(--is-medium, 1) * 18.59375rem, var(--is-small, 1) * 15.9375rem);
+}
+:root {
+  --radius-full: clamp(0.25rem, calc(var(--ig-radius-factor, 1) * 2rem), 2rem);
+  --nav-panel-radius: clamp(0rem, calc(var(--ig-radius-factor, 1) * 1.875rem), 1.875rem);
+  --radius-xl: clamp(0.25rem, calc(var(--ig-radius-factor, 0.6428571429) * 1.75rem), 1.75rem);
+  --radius-lg: clamp(0rem, calc(var(--ig-radius-factor, 0.6666666667) * 1.5rem), 1.5rem);
+  --radius-md: clamp(0.25rem, calc(var(--ig-radius-factor, 0.75) * 1rem), 1rem);
+  --radius-sm: clamp(0.125rem, calc(var(--ig-radius-factor, 0.6666666667) * 0.75rem), 0.75rem);
+  --radius-xs: clamp(0.125rem, calc(var(--ig-radius-factor, 0.75) * 0.5rem), 0.5rem);
+  --easing-default: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+:root {
+  --ig-elevation-0: none;
+  --ig-elevation-1: 0 calc(var(--ig-elevation-factor, 1) * 1px) calc(var(--ig-elevation-factor, 1) * 3px) 0 hsl(from var(--color-shadow) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 1px) calc(var(--ig-elevation-factor, 1) * 1px) 0 hsl(from var(--color-shadow) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 2px) calc(var(--ig-elevation-factor, 1) * 1px) calc(var(--ig-elevation-factor, 1) * -1px) hsl(from var(--color-shadow) h s l / 0.08);
+  --ig-elevation-2: 0 calc(var(--ig-elevation-factor, 1) * 3px) calc(var(--ig-elevation-factor, 1) * 6px) 0 hsl(from var(--color-shadow) h s l / 0.3);
+  --ig-elevation-3: 0 calc(var(--ig-elevation-factor, 1) * 3px) calc(var(--ig-elevation-factor, 1) * 6px) 0 rgba(36, 37, 44, 0.2);
+  --ig-elevation-4: 0 calc(var(--ig-elevation-factor, 1) * 2px) calc(var(--ig-elevation-factor, 1) * 12px) 0 rgba(36, 37, 44, 0.1);
+  --ig-elevation-5: 0 0 calc(var(--ig-elevation-factor, 1) * 12px) 0 rgba(36, 37, 44, 0.2);
+  --ig-elevation-6: 0 calc(var(--ig-elevation-factor, 1) * 2px) calc(var(--ig-elevation-factor, 1) * 12px) 0 rgba(36, 37, 44, 0.2);
+  --ig-elevation-7: 0 0 calc(var(--ig-elevation-factor, 1) * 12px) 0 hsl(from var(--color-shadow) h s l / 0.3);
+  --ig-elevation-8: 0 calc(var(--ig-elevation-factor, 1) * 2px) calc(var(--ig-elevation-factor, 1) * 2px) 0 rgba(36, 37, 44, 0.2);
+  --ig-elevation-9: 0 calc(var(--ig-elevation-factor, 1) * 2px) calc(var(--ig-elevation-factor, 1) * 2px) 0 hsl(from var(--color-shadow) h s l / 0.3);
+  --ig-elevation-10: 0 calc(var(--ig-elevation-factor, 1) * 2px) calc(var(--ig-elevation-factor, 1) * 6px) 0 rgba(36, 37, 44, 0.4);
+  --ig-elevation-11: 0 calc(var(--ig-elevation-factor, 1) * 2px) calc(var(--ig-elevation-factor, 1) * 6px) 0 hsl(from var(--color-shadow) h s l / 0.4);
+  --ig-elevation-12: 0 0 calc(var(--ig-elevation-factor, 1) * 16px) 0 rgba(36, 37, 44, 0.4);
+  --ig-elevation-13: 0 calc(var(--ig-elevation-factor, 1) * 7px) calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * -4px) hsl(from var(--color-shadow) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 13px) calc(var(--ig-elevation-factor, 1) * 19px) calc(var(--ig-elevation-factor, 1) * 2px) hsl(from var(--color-shadow) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 5px) calc(var(--ig-elevation-factor, 1) * 24px) calc(var(--ig-elevation-factor, 1) * 4px) hsl(from var(--color-shadow) h s l / 0.08);
+  --ig-elevation-14: 0 calc(var(--ig-elevation-factor, 1) * 7px) calc(var(--ig-elevation-factor, 1) * 9px) calc(var(--ig-elevation-factor, 1) * -4px) hsl(from var(--color-shadow) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 14px) calc(var(--ig-elevation-factor, 1) * 21px) calc(var(--ig-elevation-factor, 1) * 2px) hsl(from var(--color-shadow) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 5px) calc(var(--ig-elevation-factor, 1) * 26px) calc(var(--ig-elevation-factor, 1) * 4px) hsl(from var(--color-shadow) h s l / 0.08);
+  --ig-elevation-15: 0 calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * 9px) calc(var(--ig-elevation-factor, 1) * -5px) hsl(from var(--color-shadow) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 15px) calc(var(--ig-elevation-factor, 1) * 22px) calc(var(--ig-elevation-factor, 1) * 2px) hsl(from var(--color-shadow) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 6px) calc(var(--ig-elevation-factor, 1) * 28px) calc(var(--ig-elevation-factor, 1) * 5px) hsl(from var(--color-shadow) h s l / 0.08);
+  --ig-elevation-16: 0 calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * 10px) calc(var(--ig-elevation-factor, 1) * -5px) hsl(from var(--color-shadow) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 16px) calc(var(--ig-elevation-factor, 1) * 24px) calc(var(--ig-elevation-factor, 1) * 2px) hsl(from var(--color-shadow) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 6px) calc(var(--ig-elevation-factor, 1) * 30px) calc(var(--ig-elevation-factor, 1) * 5px) hsl(from var(--color-shadow) h s l / 0.08);
+  --ig-elevation-17: 0 calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * 11px) calc(var(--ig-elevation-factor, 1) * -5px) hsl(from var(--color-shadow) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 17px) calc(var(--ig-elevation-factor, 1) * 26px) calc(var(--ig-elevation-factor, 1) * 2px) hsl(from var(--color-shadow) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 6px) calc(var(--ig-elevation-factor, 1) * 32px) calc(var(--ig-elevation-factor, 1) * 5px) hsl(from var(--color-shadow) h s l / 0.08);
+  --ig-elevation-18: 0 calc(var(--ig-elevation-factor, 1) * 9px) calc(var(--ig-elevation-factor, 1) * 11px) calc(var(--ig-elevation-factor, 1) * -5px) hsl(from var(--color-shadow) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 18px) calc(var(--ig-elevation-factor, 1) * 28px) calc(var(--ig-elevation-factor, 1) * 2px) hsl(from var(--color-shadow) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 7px) calc(var(--ig-elevation-factor, 1) * 34px) calc(var(--ig-elevation-factor, 1) * 6px) hsl(from var(--color-shadow) h s l / 0.08);
+  --ig-elevation-19: 0 calc(var(--ig-elevation-factor, 1) * 9px) calc(var(--ig-elevation-factor, 1) * 12px) calc(var(--ig-elevation-factor, 1) * -6px) hsl(from var(--color-shadow) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 19px) calc(var(--ig-elevation-factor, 1) * 29px) calc(var(--ig-elevation-factor, 1) * 2px) hsl(from var(--color-shadow) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 7px) calc(var(--ig-elevation-factor, 1) * 36px) calc(var(--ig-elevation-factor, 1) * 6px) hsl(from var(--color-shadow) h s l / 0.08);
+  --ig-elevation-20: 0 calc(var(--ig-elevation-factor, 1) * 10px) calc(var(--ig-elevation-factor, 1) * 13px) calc(var(--ig-elevation-factor, 1) * -6px) hsl(from var(--color-shadow) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 20px) calc(var(--ig-elevation-factor, 1) * 31px) calc(var(--ig-elevation-factor, 1) * 3px) hsl(from var(--color-shadow) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * 38px) calc(var(--ig-elevation-factor, 1) * 7px) hsl(from var(--color-shadow) h s l / 0.08);
+  --ig-elevation-21: 0 calc(var(--ig-elevation-factor, 1) * 10px) calc(var(--ig-elevation-factor, 1) * 13px) calc(var(--ig-elevation-factor, 1) * -6px) hsl(from var(--color-shadow) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 21px) calc(var(--ig-elevation-factor, 1) * 33px) calc(var(--ig-elevation-factor, 1) * 3px) hsl(from var(--color-shadow) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * 40px) calc(var(--ig-elevation-factor, 1) * 7px) hsl(from var(--color-shadow) h s l / 0.08);
+  --ig-elevation-22: 0 calc(var(--ig-elevation-factor, 1) * 10px) calc(var(--ig-elevation-factor, 1) * 14px) calc(var(--ig-elevation-factor, 1) * -6px) hsl(from var(--color-shadow) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 22px) calc(var(--ig-elevation-factor, 1) * 35px) calc(var(--ig-elevation-factor, 1) * 3px) hsl(from var(--color-shadow) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * 42px) calc(var(--ig-elevation-factor, 1) * 7px) hsl(from var(--color-shadow) h s l / 0.08);
+  --ig-elevation-23: 0 0 calc(var(--ig-elevation-factor, 1) * 16px) 0 hsl(from var(--color-shadow) h s l / 0.3);
+  --ig-elevation-24: 0 0 calc(var(--ig-elevation-factor, 1) * 16px) 0 rgba(36, 37, 44, 0.4);
+}
+/*# sourceMappingURL=layout.css.map */
+/* elevations tinted with `action` (indigo preset, colours configured through its $color-1..3) */
+:root, [data-ig-scope], [data-theme] {
+  --ig-elevation-tint-1: 0 calc(var(--ig-elevation-factor, 1) * 1px) calc(var(--ig-elevation-factor, 1) * 3px) 0 hsl(from var(--color-action-default) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 1px) calc(var(--ig-elevation-factor, 1) * 1px) 0 hsl(from var(--color-action-default) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 2px) calc(var(--ig-elevation-factor, 1) * 1px) calc(var(--ig-elevation-factor, 1) * -1px) hsl(from var(--color-action-default) h s l / 0.08);
+  --ig-elevation-tint-13: 0 calc(var(--ig-elevation-factor, 1) * 7px) calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * -4px) hsl(from var(--color-action-default) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 13px) calc(var(--ig-elevation-factor, 1) * 19px) calc(var(--ig-elevation-factor, 1) * 2px) hsl(from var(--color-action-default) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 5px) calc(var(--ig-elevation-factor, 1) * 24px) calc(var(--ig-elevation-factor, 1) * 4px) hsl(from var(--color-action-default) h s l / 0.08);
+  --ig-elevation-tint-14: 0 calc(var(--ig-elevation-factor, 1) * 7px) calc(var(--ig-elevation-factor, 1) * 9px) calc(var(--ig-elevation-factor, 1) * -4px) hsl(from var(--color-action-default) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 14px) calc(var(--ig-elevation-factor, 1) * 21px) calc(var(--ig-elevation-factor, 1) * 2px) hsl(from var(--color-action-default) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 5px) calc(var(--ig-elevation-factor, 1) * 26px) calc(var(--ig-elevation-factor, 1) * 4px) hsl(from var(--color-action-default) h s l / 0.08);
+  --ig-elevation-tint-15: 0 calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * 9px) calc(var(--ig-elevation-factor, 1) * -5px) hsl(from var(--color-action-default) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 15px) calc(var(--ig-elevation-factor, 1) * 22px) calc(var(--ig-elevation-factor, 1) * 2px) hsl(from var(--color-action-default) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 6px) calc(var(--ig-elevation-factor, 1) * 28px) calc(var(--ig-elevation-factor, 1) * 5px) hsl(from var(--color-action-default) h s l / 0.08);
+  --ig-elevation-tint-16: 0 calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * 10px) calc(var(--ig-elevation-factor, 1) * -5px) hsl(from var(--color-action-default) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 16px) calc(var(--ig-elevation-factor, 1) * 24px) calc(var(--ig-elevation-factor, 1) * 2px) hsl(from var(--color-action-default) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 6px) calc(var(--ig-elevation-factor, 1) * 30px) calc(var(--ig-elevation-factor, 1) * 5px) hsl(from var(--color-action-default) h s l / 0.08);
+  --ig-elevation-tint-17: 0 calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * 11px) calc(var(--ig-elevation-factor, 1) * -5px) hsl(from var(--color-action-default) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 17px) calc(var(--ig-elevation-factor, 1) * 26px) calc(var(--ig-elevation-factor, 1) * 2px) hsl(from var(--color-action-default) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 6px) calc(var(--ig-elevation-factor, 1) * 32px) calc(var(--ig-elevation-factor, 1) * 5px) hsl(from var(--color-action-default) h s l / 0.08);
+  --ig-elevation-tint-18: 0 calc(var(--ig-elevation-factor, 1) * 9px) calc(var(--ig-elevation-factor, 1) * 11px) calc(var(--ig-elevation-factor, 1) * -5px) hsl(from var(--color-action-default) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 18px) calc(var(--ig-elevation-factor, 1) * 28px) calc(var(--ig-elevation-factor, 1) * 2px) hsl(from var(--color-action-default) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 7px) calc(var(--ig-elevation-factor, 1) * 34px) calc(var(--ig-elevation-factor, 1) * 6px) hsl(from var(--color-action-default) h s l / 0.08);
+  --ig-elevation-tint-19: 0 calc(var(--ig-elevation-factor, 1) * 9px) calc(var(--ig-elevation-factor, 1) * 12px) calc(var(--ig-elevation-factor, 1) * -6px) hsl(from var(--color-action-default) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 19px) calc(var(--ig-elevation-factor, 1) * 29px) calc(var(--ig-elevation-factor, 1) * 2px) hsl(from var(--color-action-default) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 7px) calc(var(--ig-elevation-factor, 1) * 36px) calc(var(--ig-elevation-factor, 1) * 6px) hsl(from var(--color-action-default) h s l / 0.08);
+  --ig-elevation-tint-20: 0 calc(var(--ig-elevation-factor, 1) * 10px) calc(var(--ig-elevation-factor, 1) * 13px) calc(var(--ig-elevation-factor, 1) * -6px) hsl(from var(--color-action-default) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 20px) calc(var(--ig-elevation-factor, 1) * 31px) calc(var(--ig-elevation-factor, 1) * 3px) hsl(from var(--color-action-default) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * 38px) calc(var(--ig-elevation-factor, 1) * 7px) hsl(from var(--color-action-default) h s l / 0.08);
+  --ig-elevation-tint-21: 0 calc(var(--ig-elevation-factor, 1) * 10px) calc(var(--ig-elevation-factor, 1) * 13px) calc(var(--ig-elevation-factor, 1) * -6px) hsl(from var(--color-action-default) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 21px) calc(var(--ig-elevation-factor, 1) * 33px) calc(var(--ig-elevation-factor, 1) * 3px) hsl(from var(--color-action-default) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * 40px) calc(var(--ig-elevation-factor, 1) * 7px) hsl(from var(--color-action-default) h s l / 0.08);
+  --ig-elevation-tint-22: 0 calc(var(--ig-elevation-factor, 1) * 10px) calc(var(--ig-elevation-factor, 1) * 14px) calc(var(--ig-elevation-factor, 1) * -6px) hsl(from var(--color-action-default) h s l / 0.26), 0 calc(var(--ig-elevation-factor, 1) * 22px) calc(var(--ig-elevation-factor, 1) * 35px) calc(var(--ig-elevation-factor, 1) * 3px) hsl(from var(--color-action-default) h s l / 0.12), 0 calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * 42px) calc(var(--ig-elevation-factor, 1) * 7px) hsl(from var(--color-action-default) h s l / 0.08);
+}
+/* typography: engine slot variables (create_typography, indigo scale, customScale from the previous styles) */
+:root {
+  --ig-font-family: var(--font-body);
+  --ig-h1-font-family: var(--font-display);
+  --ig-h1-font-size: 4.375rem;
+  --ig-h1-font-weight: 900;
+  --ig-h1-font-style: normal;
+  --ig-h1-line-height: 4.9rem;
+  --ig-h1-letter-spacing: -0.0257em;
+  --ig-h1-text-transform: none;
+  --ig-h2-font-family: var(--font-display);
+  --ig-h2-font-size: 2.6875rem;
+  --ig-h2-font-weight: 800;
+  --ig-h2-font-style: normal;
+  --ig-h2-line-height: 2.84875rem;
+  --ig-h2-letter-spacing: -0.0256em;
+  --ig-h2-text-transform: none;
+  --ig-h3-font-family: var(--font-display);
+  --ig-h3-font-size: 1.6875rem;
+  --ig-h3-font-weight: 800;
+  --ig-h3-font-style: normal;
+  --ig-h3-line-height: 2.025rem;
+  --ig-h3-letter-spacing: -0.0222em;
+  --ig-h3-text-transform: none;
+  --ig-h4-font-family: var(--font-display);
+  --ig-h4-font-size: 1.3125rem;
+  --ig-h4-font-weight: 800;
+  --ig-h4-font-style: normal;
+  --ig-h4-line-height: 1.44375rem;
+  --ig-h4-letter-spacing: 0;
+  --ig-h4-text-transform: none;
+  --ig-h5-font-family: var(--font-body);
+  --ig-h5-font-size: 1rem;
+  --ig-h5-font-weight: 600;
+  --ig-h5-font-style: normal;
+  --ig-h5-line-height: 1.4rem;
+  --ig-h5-letter-spacing: 0;
+  --ig-h5-text-transform: none;
+  --ig-h6-font-family: var(--font-display);
+  --ig-h6-font-size: 1.125rem;
+  --ig-h6-font-weight: 800;
+  --ig-h6-font-style: normal;
+  --ig-h6-line-height: 1.4625rem;
+  --ig-h6-letter-spacing: -0.0167em;
+  --ig-h6-text-transform: none;
+  --ig-subtitle-1-font-family: var(--font-body);
+  --ig-subtitle-1-font-size: 1.25rem;
+  --ig-subtitle-1-font-weight: 400;
+  --ig-subtitle-1-font-style: normal;
+  --ig-subtitle-1-line-height: 2rem;
+  --ig-subtitle-1-letter-spacing: 0;
+  --ig-subtitle-1-text-transform: none;
+  --ig-subtitle-2-font-family: var(--font-body);
+  --ig-subtitle-2-font-size: 1.0625rem;
+  --ig-subtitle-2-font-weight: 700;
+  --ig-subtitle-2-font-style: normal;
+  --ig-subtitle-2-line-height: 1.59375rem;
+  --ig-subtitle-2-letter-spacing: 0;
+  --ig-subtitle-2-text-transform: none;
+  --ig-body-1-font-family: var(--font-body);
+  --ig-body-1-font-size: 1.1875rem;
+  --ig-body-1-font-weight: 400;
+  --ig-body-1-font-style: normal;
+  --ig-body-1-line-height: 1.92375rem;
+  --ig-body-1-letter-spacing: 0;
+  --ig-body-1-text-transform: none;
+  --ig-body-2-font-family: var(--font-body);
+  --ig-body-2-font-size: 0.9375rem;
+  --ig-body-2-font-weight: 400;
+  --ig-body-2-font-style: normal;
+  --ig-body-2-line-height: 1.40625rem;
+  --ig-body-2-letter-spacing: 0;
+  --ig-body-2-text-transform: none;
+  --ig-button-font-family: var(--font-body);
+  --ig-button-font-size: 0.9375rem;
+  --ig-button-font-weight: 600;
+  --ig-button-font-style: normal;
+  --ig-button-line-height: 1.40625rem;
+  --ig-button-letter-spacing: 0;
+  --ig-button-text-transform: none;
+  --ig-caption-font-family: var(--font-body);
+  --ig-caption-font-size: 0.875rem;
+  --ig-caption-font-weight: 400;
+  --ig-caption-font-style: normal;
+  --ig-caption-line-height: 1.35625rem;
+  --ig-caption-letter-spacing: 0;
+  --ig-caption-text-transform: none;
+  --ig-overline-font-family: var(--font-body);
+  --ig-overline-font-size: 0.75rem;
+  --ig-overline-font-weight: 600;
+  --ig-overline-font-style: normal;
+  --ig-overline-line-height: 1.125rem;
+  --ig-overline-letter-spacing: 0.16em;
+  --ig-overline-text-transform: uppercase;
+  --ig-detail-1-font-family: var(--font-body);
+  --ig-detail-1-font-size: 0.8125rem;
+  --ig-detail-1-font-weight: 400;
+  --ig-detail-1-font-style: normal;
+  --ig-detail-1-line-height: 1.21875rem;
+  --ig-detail-1-letter-spacing: 0;
+  --ig-detail-1-text-transform: none;
+  --ig-detail-2-font-family: var(--font-body);
+  --ig-detail-2-font-size: 0.6875rem;
+  --ig-detail-2-font-weight: 400;
+  --ig-detail-2-font-style: normal;
+  --ig-detail-2-line-height: 0.9625rem;
+  --ig-detail-2-letter-spacing: 0;
+  --ig-detail-2-text-transform: none;
+}
+
+/* ===== 2. live tokens (same names as tokens.json) ===== */
+:root, [data-ig-scope], [data-theme] {
+  --shadow-none: var(--ig-elevation-0);
+  --shadow-raised: var(--ig-elevation-4);
+  --shadow-accent-lg: var(--ig-elevation-tint-16);
+  --shadow-accent-sm: var(--ig-elevation-tint-1);
+  --shadow-overlay: var(--ig-elevation-22);
+  --shadow-floating: var(--ig-elevation-16);
+  --shadow-accent-md: var(--ig-elevation-tint-13);
+  --callout-release-shadow: inset 0 0 0 var(--border-width-default) var(--color-emphasis-ring), var(--ig-elevation-tint-13);
+  --callout-release-shadow-hover: inset 0 0 0 var(--border-width-default) var(--color-emphasis-ring-hover), var(--ig-elevation-tint-16);
+  --shadow-popover-filter: drop-shadow(0 calc(var(--ig-elevation-factor, 1) * 10px) calc(var(--ig-elevation-factor, 1) * 13px) hsl(from var(--color-shadow) h s l / 0.26)) drop-shadow(0 calc(var(--ig-elevation-factor, 1) * 20px) calc(var(--ig-elevation-factor, 1) * 31px) hsl(from var(--color-shadow) h s l / 0.12)) drop-shadow(0 calc(var(--ig-elevation-factor, 1) * 8px) calc(var(--ig-elevation-factor, 1) * 38px) hsl(from var(--color-shadow) h s l / 0.08));
+  --elevation-0: var(--ig-elevation-0);
+  --elevation-1: var(--ig-elevation-1);
+  --elevation-2: var(--ig-elevation-2);
+  --elevation-3: var(--ig-elevation-3);
+  --elevation-4: var(--ig-elevation-4);
+  --elevation-5: var(--ig-elevation-5);
+  --elevation-6: var(--ig-elevation-6);
+  --elevation-7: var(--ig-elevation-7);
+  --elevation-8: var(--ig-elevation-8);
+  --elevation-9: var(--ig-elevation-9);
+  --elevation-10: var(--ig-elevation-10);
+  --elevation-11: var(--ig-elevation-11);
+  --elevation-12: var(--ig-elevation-12);
+  --elevation-13: var(--ig-elevation-13);
+  --elevation-14: var(--ig-elevation-14);
+  --elevation-15: var(--ig-elevation-15);
+  --elevation-16: var(--ig-elevation-16);
+  --elevation-17: var(--ig-elevation-17);
+  --elevation-18: var(--ig-elevation-18);
+  --elevation-19: var(--ig-elevation-19);
+  --elevation-20: var(--ig-elevation-20);
+  --elevation-21: var(--ig-elevation-21);
+  --elevation-22: var(--ig-elevation-22);
+  --elevation-23: var(--ig-elevation-23);
+  --elevation-24: var(--ig-elevation-24);
+  --elevation-tint-1: var(--ig-elevation-tint-1);
+  --elevation-tint-13: var(--ig-elevation-tint-13);
+  --elevation-tint-14: var(--ig-elevation-tint-14);
+  --elevation-tint-15: var(--ig-elevation-tint-15);
+  --elevation-tint-16: var(--ig-elevation-tint-16);
+  --elevation-tint-17: var(--ig-elevation-tint-17);
+  --elevation-tint-18: var(--ig-elevation-tint-18);
+  --elevation-tint-19: var(--ig-elevation-tint-19);
+  --elevation-tint-20: var(--ig-elevation-tint-20);
+  --elevation-tint-21: var(--ig-elevation-tint-21);
+  --elevation-tint-22: var(--ig-elevation-tint-22);
+  --footer-background-gradient: linear-gradient(155deg, var(--ig-dark-surface-200) 0%, var(--ig-dark-surface-400) 42%, var(--footer-background) 100%);
+  --gradient-brand: linear-gradient(92deg, var(--color-accent-blue), var(--color-accent-violet));
+  --gradient-hero: linear-gradient(180deg, var(--color-surface-hero), var(--color-surface-page));
+  --glow-blue: radial-gradient(circle, hsl(from var(--color-accent-blue) h s l / var(--opacity-muted)), transparent 62%);
+  --glow-violet: radial-gradient(circle, hsl(from var(--color-accent-violet) h s l / var(--opacity-muted)), transparent 62%);
+  --glow-violet-strong: radial-gradient(circle, hsl(from var(--color-accent-violet) h s l / var(--opacity-heavy)), transparent 62%);
+  --glow-pink: radial-gradient(circle, hsl(from var(--tile-pink) h s l / var(--opacity-muted)), transparent 62%);
+  --glow-teal: radial-gradient(circle, hsl(from var(--color-accent-teal) h s l / var(--opacity-soft)), transparent 68%);
+  --color-action-subtle: hsl(from var(--color-action-default) h s l / var(--opacity-subtle));
+  --color-action-subtle-border: hsl(from var(--color-action-default) h s l / var(--opacity-strong));
+  --color-emphasis-border: hsl(from var(--color-accent-blue) h s l / var(--opacity-heavy));
+  --color-emphasis-ring: hsl(from var(--color-accent-blue) h s l / var(--opacity-soft));
+  --color-emphasis-ring-hover: hsl(from var(--color-accent-blue) h s l / var(--opacity-strong));
+  --badge-oss-background: hsl(from var(--badge-oss-color) h s l / var(--opacity-soft));
+  --nav-background: hsl(from var(--color-surface-page) h s l / var(--opacity-nav));
+  --color-overlay-scrim: hsl(from var(--color-surface-inverse) h s l / var(--opacity-strong));
+  --footer-rule: hsl(from var(--color-text-inverse) h s l / var(--opacity-subtle));
+  --footer-rule-strong: hsl(from var(--color-text-inverse) h s l / var(--opacity-muted));
+  --footer-card-border: hsl(from var(--color-text-inverse) h s l / var(--opacity-subtle));
+  --footer-field-background: hsl(from var(--color-text-inverse) h s l / var(--opacity-subtle));
+  --footer-field-pill-background: hsl(from var(--footer-background) h s l / var(--opacity-field));
+  --footer-check-background: hsl(from var(--color-text-inverse) h s l / var(--opacity-faint));
+  --footer-check-border: hsl(from var(--color-text-inverse) h s l / var(--opacity-heavy));
+  --footer-social-hover-background: hsl(from var(--color-link-inverse) h s l / var(--opacity-muted));
+  --footer-social-hover-border: hsl(from var(--color-focus-inverse) h s l / var(--opacity-heavy));
+  --gradient-border-bundle: linear-gradient(var(--color-surface-card), var(--color-surface-card)) padding-box, linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-violet)) border-box;
+  --gradient-emphasis: linear-gradient(180deg, hsl(from var(--color-accent-blue) h s l / var(--opacity-subtle)), hsl(from var(--color-accent-sky) h s l / var(--opacity-faint)));
+  --footer-card-background: linear-gradient(180deg, hsl(from var(--color-text-inverse) h s l / var(--opacity-faint)), transparent);
+  --container-gutter: clamp(var(--space-md), 4vw, var(--space-4xl)); /* @kind spacing */
+  --layout-split: 0.95fr 1.05fr; /* @kind other */
+  --nav-backdrop-blur: blur(var(--space-sm));
+}
+
+/* motion */
+:root {
+  --duration-chip: 140ms;
+  --duration-fast: 160ms;
+  --duration-button: 180ms;
+  --duration-slow: 320ms;
+  --duration-float: 5000ms;
+  --duration-spin: 800ms;
+  --easing-linear: linear;
+  --transition-default: all var(--duration-fast) var(--easing-default);
+}
+
+/* ===== 3. type variables and classes ===== */
+:root {
+  --type-h1-font-family: var(--ig-h1-font-family);
+  --type-h1-font-size: var(--ig-h1-font-size);
+  --type-h1-font-weight: var(--ig-h1-font-weight);
+  --type-h1-line-height: var(--ig-h1-line-height);
+  --type-h1-letter-spacing: var(--ig-h1-letter-spacing);
+  --type-h1-text-transform: var(--ig-h1-text-transform);
+  --type-h2-font-family: var(--ig-h2-font-family);
+  --type-h2-font-size: var(--ig-h2-font-size);
+  --type-h2-font-weight: var(--ig-h2-font-weight);
+  --type-h2-line-height: var(--ig-h2-line-height);
+  --type-h2-letter-spacing: var(--ig-h2-letter-spacing);
+  --type-h2-text-transform: var(--ig-h2-text-transform);
+  --type-h3-font-family: var(--ig-h3-font-family);
+  --type-h3-font-size: var(--ig-h3-font-size);
+  --type-h3-font-weight: var(--ig-h3-font-weight);
+  --type-h3-line-height: var(--ig-h3-line-height);
+  --type-h3-letter-spacing: var(--ig-h3-letter-spacing);
+  --type-h3-text-transform: var(--ig-h3-text-transform);
+  --type-h4-font-family: var(--ig-h4-font-family);
+  --type-h4-font-size: var(--ig-h4-font-size);
+  --type-h4-font-weight: var(--ig-h4-font-weight);
+  --type-h4-line-height: var(--ig-h4-line-height);
+  --type-h4-letter-spacing: var(--ig-h4-letter-spacing);
+  --type-h4-text-transform: var(--ig-h4-text-transform);
+  --type-h5-font-family: var(--ig-h5-font-family);
+  --type-h5-font-size: var(--ig-h5-font-size);
+  --type-h5-font-weight: var(--ig-h5-font-weight);
+  --type-h5-line-height: var(--ig-h5-line-height);
+  --type-h5-letter-spacing: var(--ig-h5-letter-spacing);
+  --type-h5-text-transform: var(--ig-h5-text-transform);
+  --type-h6-font-family: var(--ig-h6-font-family);
+  --type-h6-font-size: var(--ig-h6-font-size);
+  --type-h6-font-weight: var(--ig-h6-font-weight);
+  --type-h6-line-height: var(--ig-h6-line-height);
+  --type-h6-letter-spacing: var(--ig-h6-letter-spacing);
+  --type-h6-text-transform: var(--ig-h6-text-transform);
+  --type-subtitle-1-font-family: var(--ig-subtitle-1-font-family);
+  --type-subtitle-1-font-size: var(--ig-subtitle-1-font-size);
+  --type-subtitle-1-font-weight: var(--ig-subtitle-1-font-weight);
+  --type-subtitle-1-line-height: var(--ig-subtitle-1-line-height);
+  --type-subtitle-1-letter-spacing: var(--ig-subtitle-1-letter-spacing);
+  --type-subtitle-1-text-transform: var(--ig-subtitle-1-text-transform);
+  --type-subtitle-2-font-family: var(--ig-subtitle-2-font-family);
+  --type-subtitle-2-font-size: var(--ig-subtitle-2-font-size);
+  --type-subtitle-2-font-weight: var(--ig-subtitle-2-font-weight);
+  --type-subtitle-2-line-height: var(--ig-subtitle-2-line-height);
+  --type-subtitle-2-letter-spacing: var(--ig-subtitle-2-letter-spacing);
+  --type-subtitle-2-text-transform: var(--ig-subtitle-2-text-transform);
+  --type-body-1-font-family: var(--ig-body-1-font-family);
+  --type-body-1-font-size: var(--ig-body-1-font-size);
+  --type-body-1-font-weight: var(--ig-body-1-font-weight);
+  --type-body-1-line-height: var(--ig-body-1-line-height);
+  --type-body-1-letter-spacing: var(--ig-body-1-letter-spacing);
+  --type-body-1-text-transform: var(--ig-body-1-text-transform);
+  --type-body-2-font-family: var(--ig-body-2-font-family);
+  --type-body-2-font-size: var(--ig-body-2-font-size);
+  --type-body-2-font-weight: var(--ig-body-2-font-weight);
+  --type-body-2-line-height: var(--ig-body-2-line-height);
+  --type-body-2-letter-spacing: var(--ig-body-2-letter-spacing);
+  --type-body-2-text-transform: var(--ig-body-2-text-transform);
+  --type-button-font-family: var(--ig-button-font-family);
+  --type-button-font-size: var(--ig-button-font-size);
+  --type-button-font-weight: var(--ig-button-font-weight);
+  --type-button-line-height: var(--ig-button-line-height);
+  --type-button-letter-spacing: var(--ig-button-letter-spacing);
+  --type-button-text-transform: var(--ig-button-text-transform);
+  --type-caption-font-family: var(--ig-caption-font-family);
+  --type-caption-font-size: var(--ig-caption-font-size);
+  --type-caption-font-weight: var(--ig-caption-font-weight);
+  --type-caption-line-height: var(--ig-caption-line-height);
+  --type-caption-letter-spacing: var(--ig-caption-letter-spacing);
+  --type-caption-text-transform: var(--ig-caption-text-transform);
+  --type-overline-font-family: var(--ig-overline-font-family);
+  --type-overline-font-size: var(--ig-overline-font-size);
+  --type-overline-font-weight: var(--ig-overline-font-weight);
+  --type-overline-line-height: var(--ig-overline-line-height);
+  --type-overline-letter-spacing: var(--ig-overline-letter-spacing);
+  --type-overline-text-transform: var(--ig-overline-text-transform);
+  --type-detail-1-font-family: var(--ig-detail-1-font-family);
+  --type-detail-1-font-size: var(--ig-detail-1-font-size);
+  --type-detail-1-font-weight: var(--ig-detail-1-font-weight);
+  --type-detail-1-line-height: var(--ig-detail-1-line-height);
+  --type-detail-1-letter-spacing: var(--ig-detail-1-letter-spacing);
+  --type-detail-1-text-transform: var(--ig-detail-1-text-transform);
+  --type-detail-2-font-family: var(--ig-detail-2-font-family);
+  --type-detail-2-font-size: var(--ig-detail-2-font-size);
+  --type-detail-2-font-weight: var(--ig-detail-2-font-weight);
+  --type-detail-2-line-height: var(--ig-detail-2-line-height);
+  --type-detail-2-letter-spacing: var(--ig-detail-2-letter-spacing);
+  --type-detail-2-text-transform: var(--ig-detail-2-text-transform);
+}
+.type-h1 { font-family: var(--type-h1-font-family); font-size: var(--type-h1-font-size); font-weight: var(--type-h1-font-weight); line-height: var(--type-h1-line-height); letter-spacing: var(--type-h1-letter-spacing); text-transform: var(--type-h1-text-transform); }
+.type-h2 { font-family: var(--type-h2-font-family); font-size: var(--type-h2-font-size); font-weight: var(--type-h2-font-weight); line-height: var(--type-h2-line-height); letter-spacing: var(--type-h2-letter-spacing); text-transform: var(--type-h2-text-transform); }
+.type-h3 { font-family: var(--type-h3-font-family); font-size: var(--type-h3-font-size); font-weight: var(--type-h3-font-weight); line-height: var(--type-h3-line-height); letter-spacing: var(--type-h3-letter-spacing); text-transform: var(--type-h3-text-transform); }
+.type-h4 { font-family: var(--type-h4-font-family); font-size: var(--type-h4-font-size); font-weight: var(--type-h4-font-weight); line-height: var(--type-h4-line-height); letter-spacing: var(--type-h4-letter-spacing); text-transform: var(--type-h4-text-transform); }
+.type-h5 { font-family: var(--type-h5-font-family); font-size: var(--type-h5-font-size); font-weight: var(--type-h5-font-weight); line-height: var(--type-h5-line-height); letter-spacing: var(--type-h5-letter-spacing); text-transform: var(--type-h5-text-transform); }
+.type-h6 { font-family: var(--type-h6-font-family); font-size: var(--type-h6-font-size); font-weight: var(--type-h6-font-weight); line-height: var(--type-h6-line-height); letter-spacing: var(--type-h6-letter-spacing); text-transform: var(--type-h6-text-transform); }
+.type-subtitle-1 { font-family: var(--type-subtitle-1-font-family); font-size: var(--type-subtitle-1-font-size); font-weight: var(--type-subtitle-1-font-weight); line-height: var(--type-subtitle-1-line-height); letter-spacing: var(--type-subtitle-1-letter-spacing); text-transform: var(--type-subtitle-1-text-transform); }
+.type-subtitle-2 { font-family: var(--type-subtitle-2-font-family); font-size: var(--type-subtitle-2-font-size); font-weight: var(--type-subtitle-2-font-weight); line-height: var(--type-subtitle-2-line-height); letter-spacing: var(--type-subtitle-2-letter-spacing); text-transform: var(--type-subtitle-2-text-transform); }
+.type-body-1 { font-family: var(--type-body-1-font-family); font-size: var(--type-body-1-font-size); font-weight: var(--type-body-1-font-weight); line-height: var(--type-body-1-line-height); letter-spacing: var(--type-body-1-letter-spacing); text-transform: var(--type-body-1-text-transform); }
+.type-body-2 { font-family: var(--type-body-2-font-family); font-size: var(--type-body-2-font-size); font-weight: var(--type-body-2-font-weight); line-height: var(--type-body-2-line-height); letter-spacing: var(--type-body-2-letter-spacing); text-transform: var(--type-body-2-text-transform); }
+.type-button { font-family: var(--type-button-font-family); font-size: var(--type-button-font-size); font-weight: var(--type-button-font-weight); line-height: var(--type-button-line-height); letter-spacing: var(--type-button-letter-spacing); text-transform: var(--type-button-text-transform); }
+.type-caption { font-family: var(--type-caption-font-family); font-size: var(--type-caption-font-size); font-weight: var(--type-caption-font-weight); line-height: var(--type-caption-line-height); letter-spacing: var(--type-caption-letter-spacing); text-transform: var(--type-caption-text-transform); }
+.type-overline { font-family: var(--type-overline-font-family); font-size: var(--type-overline-font-size); font-weight: var(--type-overline-font-weight); line-height: var(--type-overline-line-height); letter-spacing: var(--type-overline-letter-spacing); text-transform: var(--type-overline-text-transform); }
+.type-detail-1 { font-family: var(--type-detail-1-font-family); font-size: var(--type-detail-1-font-size); font-weight: var(--type-detail-1-font-weight); line-height: var(--type-detail-1-line-height); letter-spacing: var(--type-detail-1-letter-spacing); text-transform: var(--type-detail-1-text-transform); }
+.type-detail-2 { font-family: var(--type-detail-2-font-family); font-size: var(--type-detail-2-font-size); font-weight: var(--type-detail-2-font-weight); line-height: var(--type-detail-2-line-height); letter-spacing: var(--type-detail-2-letter-spacing); text-transform: var(--type-detail-2-text-transform); }
+
+/* ===== 4. motion keyframes and base styles ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@keyframes ig-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(calc(-1 * var(--space-xs))); }
+}
+@keyframes ig-app-shimmer {
+  0%, 100% { filter: drop-shadow(0 var(--space-xs) var(--space-md) hsl(from var(--color-accent-blue) h s l / var(--opacity-heavy))); opacity: 1; }
+  50%      { filter: drop-shadow(0 var(--space-xs) var(--space-xl) hsl(from var(--color-accent-sky) h s l / var(--opacity-heavy))); opacity: 1; }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--color-surface-page);
+  font-family: var(--font-body);
+  font-size: var(--type-body-2-font-size);
+  line-height: var(--type-body-2-line-height);
+  color: var(--color-text-primary);
+  text-wrap: pretty;
+}
+a { color: var(--color-action-default); text-decoration: none; }
+a:hover { color: var(--color-action-hover); }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); color: var(--color-text-heading); margin: 0; }
+code, pre { font-family: var(--font-mono); }
+
+/* Keyboard focus. Mouse users never see this; keyboard users always do.
+   Add data-on-dark to any dark section so the ring stays visible. */
+:focus { outline: none; }
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-default);
+  outline-offset: var(--focus-ring-offset);
+}
+[data-on-dark] a:focus-visible, [data-on-dark] button:focus-visible,
+[data-on-dark] [tabindex]:focus-visible {
+  outline-color: var(--color-focus-inverse);
+}
+
+/* Breakpoints (media queries cannot read custom properties; generated from tokens.json breakpoint family) */
+.ig-hide-below-md { }
+@media (max-width: 768px) { .ig-hide-below-md { display: none !important; } }
+
+:root { --color-shadow: oklch(0 0 0); }
+/* ===== 5. seed layer: derived colour ===== */
+/* knobs: --<family>-dl (lightness +), --<family>-kc (chroma ×), --<family>-dh (hue +°). Defaults leave the engine ramp unchanged.
+   Set them with setSeed() from components/seed.js, or by hand. Every state (hover, active, focus, tint, border, shadow, glow) reads the ramp, so none needs its own colour. */
+:root {
+  --brand-dl: 0; --brand-kc: 1; --brand-dh: 0;
+  --secondary-dl: 0; --secondary-kc: 1; --secondary-dh: 0;
+  --success-dl: 0; --success-kc: 1; --success-dh: 0;
+  --warn-dl: 0; --warn-kc: 1; --warn-dh: 0;
+  --error-dl: 0; --error-kc: 1; --error-dh: 0;
+  --pink-dl: 0; --pink-kc: 1; --pink-dh: 0;
+  --cyan-dl: 0; --cyan-kc: 1; --cyan-dh: 0;
+  --sky-dl: 0; --sky-kc: 1; --sky-dh: 0;
+  --teal-dl: 0; --teal-kc: 1; --teal-dh: 0;
+}
+/* everything below is re-declared on [data-ig-scope], so a region can carry its own base colours or knobs */
+:root, [data-ig-scope], [data-theme] {
+  --engine-ig-primary-50: #f4f5fd;
+  --ig-primary-50: oklch(from var(--engine-ig-primary-50) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-primary-100: #e5eaff;
+  --ig-primary-100: oklch(from var(--engine-ig-primary-100) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-primary-200: #cbd6ff;
+  --ig-primary-200: oklch(from var(--engine-ig-primary-200) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-primary-300: #a7bcff;
+  --ig-primary-300: oklch(from var(--engine-ig-primary-300) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-primary-400: #7b9dff;
+  --ig-primary-400: oklch(from var(--engine-ig-primary-400) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-primary-500: #4c7dfe;
+  --ig-primary-500: oklch(from var(--engine-ig-primary-500) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-primary-600: #2462ea;
+  --ig-primary-600: oklch(from var(--engine-ig-primary-600) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-primary-700: #164ecb;
+  --ig-primary-700: oklch(from var(--engine-ig-primary-700) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-primary-800: #1543a6;
+  --ig-primary-800: oklch(from var(--engine-ig-primary-800) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-primary-900: #1a3c85;
+  --ig-primary-900: oklch(from var(--engine-ig-primary-900) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-primary-accent-100: #cfd9ff;
+  --ig-primary-accent-100: oklch(from var(--engine-ig-primary-accent-100) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-primary-accent-200: #7a9dff;
+  --ig-primary-accent-200: oklch(from var(--engine-ig-primary-accent-200) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-primary-accent-400: #3971ff;
+  --ig-primary-accent-400: oklch(from var(--engine-ig-primary-accent-400) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-primary-accent-700: #0a51eb;
+  --ig-primary-accent-700: oklch(from var(--engine-ig-primary-accent-700) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-secondary-50: #f9f5fd;
+  --ig-secondary-50: oklch(from var(--engine-ig-secondary-50) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-secondary-100: #f3e9fd;
+  --ig-secondary-100: oklch(from var(--engine-ig-secondary-100) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-secondary-200: #ebd5ff;
+  --ig-secondary-200: oklch(from var(--engine-ig-secondary-200) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-secondary-300: #d9b1ff;
+  --ig-secondary-300: oklch(from var(--engine-ig-secondary-300) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-secondary-400: #bd7dff;
+  --ig-secondary-400: oklch(from var(--engine-ig-secondary-400) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-secondary-500: #a452f8;
+  --ig-secondary-500: oklch(from var(--engine-ig-secondary-500) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-secondary-600: #8f35e3;
+  --ig-secondary-600: oklch(from var(--engine-ig-secondary-600) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-secondary-700: #7b27c5;
+  --ig-secondary-700: oklch(from var(--engine-ig-secondary-700) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-secondary-800: #6526a1;
+  --ig-secondary-800: oklch(from var(--engine-ig-secondary-800) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-secondary-900: #4f277b;
+  --ig-secondary-900: oklch(from var(--engine-ig-secondary-900) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-secondary-accent-100: #ead1ff;
+  --ig-secondary-accent-100: oklch(from var(--engine-ig-secondary-accent-100) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-secondary-accent-200: #c285ff;
+  --ig-secondary-accent-200: oklch(from var(--engine-ig-secondary-accent-200) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-secondary-accent-400: #a549ff;
+  --ig-secondary-accent-400: oklch(from var(--engine-ig-secondary-accent-400) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-secondary-accent-700: #8d15e7;
+  --ig-secondary-accent-700: oklch(from var(--engine-ig-secondary-accent-700) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-info-50: #e2edfb;
+  --ig-info-50: oklch(from var(--engine-ig-info-50) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-info-100: #accffb;
+  --ig-info-100: oklch(from var(--engine-ig-info-100) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-info-200: #75b4fa;
+  --ig-info-200: oklch(from var(--engine-ig-info-200) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-info-300: #439bef;
+  --ig-info-300: oklch(from var(--engine-ig-info-300) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-info-400: #1b83d6;
+  --ig-info-400: oklch(from var(--engine-ig-info-400) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-info-500: #096db7;
+  --ig-info-500: oklch(from var(--engine-ig-info-500) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-info-600: #065996;
+  --ig-info-600: oklch(from var(--engine-ig-info-600) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-info-700: #0b4574;
+  --ig-info-700: oklch(from var(--engine-ig-info-700) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-info-800: #0c3050;
+  --ig-info-800: oklch(from var(--engine-ig-info-800) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-info-900: #061625;
+  --ig-info-900: oklch(from var(--engine-ig-info-900) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-info-accent-100: #bfddff;
+  --ig-info-accent-100: oklch(from var(--engine-ig-info-accent-100) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-info-accent-200: #49a4ff;
+  --ig-info-accent-200: oklch(from var(--engine-ig-info-accent-200) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-info-accent-400: #047fd5;
+  --ig-info-accent-400: oklch(from var(--engine-ig-info-accent-400) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-info-accent-700: #0064a9;
+  --ig-info-accent-700: oklch(from var(--engine-ig-info-accent-700) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-success-50: #b5f9ef;
+  --ig-success-50: oklch(from var(--engine-ig-success-50) calc(l + var(--success-dl)) calc(c * var(--success-kc)) calc(h + var(--success-dh)));
+  --engine-ig-success-100: #5ce1d1;
+  --ig-success-100: oklch(from var(--engine-ig-success-100) calc(l + var(--success-dl)) calc(c * var(--success-kc)) calc(h + var(--success-dh)));
+  --engine-ig-success-200: #34c3b5;
+  --ig-success-200: oklch(from var(--engine-ig-success-200) calc(l + var(--success-dl)) calc(c * var(--success-kc)) calc(h + var(--success-dh)));
+  --engine-ig-success-300: #1aa89b;
+  --ig-success-300: oklch(from var(--engine-ig-success-300) calc(l + var(--success-dl)) calc(c * var(--success-kc)) calc(h + var(--success-dh)));
+  --engine-ig-success-400: #0d8f83;
+  --ig-success-400: oklch(from var(--engine-ig-success-400) calc(l + var(--success-dl)) calc(c * var(--success-kc)) calc(h + var(--success-dh)));
+  --engine-ig-success-500: #09776d;
+  --ig-success-500: oklch(from var(--engine-ig-success-500) calc(l + var(--success-dl)) calc(c * var(--success-kc)) calc(h + var(--success-dh)));
+  --engine-ig-success-600: #0a6159;
+  --ig-success-600: oklch(from var(--engine-ig-success-600) calc(l + var(--success-dl)) calc(c * var(--success-kc)) calc(h + var(--success-dh)));
+  --engine-ig-success-700: #0e4b45;
+  --ig-success-700: oklch(from var(--engine-ig-success-700) calc(l + var(--success-dl)) calc(c * var(--success-kc)) calc(h + var(--success-dh)));
+  --engine-ig-success-800: #0e3430;
+  --ig-success-800: oklch(from var(--engine-ig-success-800) calc(l + var(--success-dl)) calc(c * var(--success-kc)) calc(h + var(--success-dh)));
+  --engine-ig-success-900: #071816;
+  --ig-success-900: oklch(from var(--engine-ig-success-900) calc(l + var(--success-dl)) calc(c * var(--success-kc)) calc(h + var(--success-dh)));
+  --engine-ig-success-accent-100: #14f4e0;
+  --ig-success-accent-100: oklch(from var(--engine-ig-success-accent-100) calc(l + var(--success-dl)) calc(c * var(--success-kc)) calc(h + var(--success-dh)));
+  --engine-ig-success-accent-200: #00b4a5;
+  --ig-success-accent-200: oklch(from var(--engine-ig-success-accent-200) calc(l + var(--success-dl)) calc(c * var(--success-kc)) calc(h + var(--success-dh)));
+  --engine-ig-success-accent-400: #008b7f;
+  --ig-success-accent-400: oklch(from var(--engine-ig-success-accent-400) calc(l + var(--success-dl)) calc(c * var(--success-kc)) calc(h + var(--success-dh)));
+  --engine-ig-success-accent-700: #006d64;
+  --ig-success-accent-700: oklch(from var(--engine-ig-success-accent-700) calc(l + var(--success-dl)) calc(c * var(--success-kc)) calc(h + var(--success-dh)));
+  --engine-ig-warn-50: #fbe9d6;
+  --ig-warn-50: oklch(from var(--engine-ig-warn-50) calc(l + var(--warn-dl)) calc(c * var(--warn-kc)) calc(h + var(--warn-dh)));
+  --engine-ig-warn-100: #f7c386;
+  --ig-warn-100: oklch(from var(--engine-ig-warn-100) calc(l + var(--warn-dl)) calc(c * var(--warn-kc)) calc(h + var(--warn-dh)));
+  --engine-ig-warn-200: #eaa142;
+  --ig-warn-200: oklch(from var(--engine-ig-warn-200) calc(l + var(--warn-dl)) calc(c * var(--warn-kc)) calc(h + var(--warn-dh)));
+  --engine-ig-warn-300: #cf8719;
+  --ig-warn-300: oklch(from var(--engine-ig-warn-300) calc(l + var(--warn-dl)) calc(c * var(--warn-kc)) calc(h + var(--warn-dh)));
+  --engine-ig-warn-400: #b27104;
+  --ig-warn-400: oklch(from var(--engine-ig-warn-400) calc(l + var(--warn-dl)) calc(c * var(--warn-kc)) calc(h + var(--warn-dh)));
+  --engine-ig-warn-500: #955e01;
+  --ig-warn-500: oklch(from var(--engine-ig-warn-500) calc(l + var(--warn-dl)) calc(c * var(--warn-kc)) calc(h + var(--warn-dh)));
+  --engine-ig-warn-600: #7a4c04;
+  --ig-warn-600: oklch(from var(--engine-ig-warn-600) calc(l + var(--warn-dl)) calc(c * var(--warn-kc)) calc(h + var(--warn-dh)));
+  --engine-ig-warn-700: #5e3b09;
+  --ig-warn-700: oklch(from var(--engine-ig-warn-700) calc(l + var(--warn-dl)) calc(c * var(--warn-kc)) calc(h + var(--warn-dh)));
+  --engine-ig-warn-800: #412a0b;
+  --ig-warn-800: oklch(from var(--engine-ig-warn-800) calc(l + var(--warn-dl)) calc(c * var(--warn-kc)) calc(h + var(--warn-dh)));
+  --engine-ig-warn-900: #1e1306;
+  --ig-warn-900: oklch(from var(--engine-ig-warn-900) calc(l + var(--warn-dl)) calc(c * var(--warn-kc)) calc(h + var(--warn-dh)));
+  --engine-ig-warn-accent-100: #ffd39d;
+  --ig-warn-accent-100: oklch(from var(--engine-ig-warn-accent-100) calc(l + var(--warn-dl)) calc(c * var(--warn-kc)) calc(h + var(--warn-dh)));
+  --engine-ig-warn-accent-200: #df8f04;
+  --ig-warn-accent-200: oklch(from var(--engine-ig-warn-accent-200) calc(l + var(--warn-dl)) calc(c * var(--warn-kc)) calc(h + var(--warn-dh)));
+  --engine-ig-warn-accent-400: #ad6e00;
+  --ig-warn-accent-400: oklch(from var(--engine-ig-warn-accent-400) calc(l + var(--warn-dl)) calc(c * var(--warn-kc)) calc(h + var(--warn-dh)));
+  --engine-ig-warn-accent-700: #895600;
+  --ig-warn-accent-700: oklch(from var(--engine-ig-warn-accent-700) calc(l + var(--warn-dl)) calc(c * var(--warn-kc)) calc(h + var(--warn-dh)));
+  --engine-ig-error-50: #fee6e6;
+  --ig-error-50: oklch(from var(--engine-ig-error-50) calc(l + var(--error-dl)) calc(c * var(--error-kc)) calc(h + var(--error-dh)));
+  --engine-ig-error-100: #ffbbbb;
+  --ig-error-100: oklch(from var(--engine-ig-error-100) calc(l + var(--error-dl)) calc(c * var(--error-kc)) calc(h + var(--error-dh)));
+  --engine-ig-error-200: #ff9093;
+  --ig-error-200: oklch(from var(--engine-ig-error-200) calc(l + var(--error-dl)) calc(c * var(--error-kc)) calc(h + var(--error-dh)));
+  --engine-ig-error-300: #fe616d;
+  --ig-error-300: oklch(from var(--engine-ig-error-300) calc(l + var(--error-dl)) calc(c * var(--error-kc)) calc(h + var(--error-dh)));
+  --engine-ig-error-400: #ec3851;
+  --ig-error-400: oklch(from var(--engine-ig-error-400) calc(l + var(--error-dl)) calc(c * var(--error-kc)) calc(h + var(--error-dh)));
+  --engine-ig-error-500: #cf1b3e;
+  --ig-error-500: oklch(from var(--engine-ig-error-500) calc(l + var(--error-dl)) calc(c * var(--error-kc)) calc(h + var(--error-dh)));
+  --engine-ig-error-600: #ac0f30;
+  --ig-error-600: oklch(from var(--engine-ig-error-600) calc(l + var(--error-dl)) calc(c * var(--error-kc)) calc(h + var(--error-dh)));
+  --engine-ig-error-700: #861126;
+  --ig-error-700: oklch(from var(--engine-ig-error-700) calc(l + var(--error-dl)) calc(c * var(--error-kc)) calc(h + var(--error-dh)));
+  --engine-ig-error-800: #5d111b;
+  --ig-error-800: oklch(from var(--engine-ig-error-800) calc(l + var(--error-dl)) calc(c * var(--error-kc)) calc(h + var(--error-dh)));
+  --engine-ig-error-900: #2c090c;
+  --ig-error-900: oklch(from var(--engine-ig-error-900) calc(l + var(--error-dl)) calc(c * var(--error-kc)) calc(h + var(--error-dh)));
+  --engine-ig-error-accent-100: #ffcece;
+  --ig-error-accent-100: oklch(from var(--engine-ig-error-accent-100) calc(l + var(--error-dl)) calc(c * var(--error-kc)) calc(h + var(--error-dh)));
+  --engine-ig-error-accent-200: #ff757d;
+  --ig-error-accent-200: oklch(from var(--engine-ig-error-accent-200) calc(l + var(--error-dl)) calc(c * var(--error-kc)) calc(h + var(--error-dh)));
+  --engine-ig-error-accent-400: #f01f48;
+  --ig-error-accent-400: oklch(from var(--engine-ig-error-accent-400) calc(l + var(--error-dl)) calc(c * var(--error-kc)) calc(h + var(--error-dh)));
+  --engine-ig-error-accent-700: #c30135;
+  --ig-error-accent-700: oklch(from var(--engine-ig-error-accent-700) calc(l + var(--error-dl)) calc(c * var(--error-kc)) calc(h + var(--error-dh)));
+  --engine-ig-primary-seed: #155dfc;
+  --ig-primary-seed: oklch(from var(--engine-ig-primary-seed) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-secondary-seed: #9810fa;
+  --ig-secondary-seed: oklch(from var(--engine-ig-secondary-seed) calc(l + var(--secondary-dl)) calc(c * var(--secondary-kc)) calc(h + var(--secondary-dh)));
+  --engine-ig-info-seed: #0099ff;
+  --ig-info-seed: oklch(from var(--engine-ig-info-seed) calc(l + var(--brand-dl)) calc(c * var(--brand-kc)) calc(h + var(--brand-dh)));
+  --engine-ig-pink-50: #fee6ec;
+  --ig-pink-50: oklch(from var(--engine-ig-pink-50) calc(l + var(--pink-dl)) calc(c * var(--pink-kc)) calc(h + var(--pink-dh)));
+  --engine-ig-pink-100: #ffb9ce;
+  --ig-pink-100: oklch(from var(--engine-ig-pink-100) calc(l + var(--pink-dl)) calc(c * var(--pink-kc)) calc(h + var(--pink-dh)));
+  --engine-ig-pink-200: #ff8cb6;
+  --ig-pink-200: oklch(from var(--engine-ig-pink-200) calc(l + var(--pink-dl)) calc(c * var(--pink-kc)) calc(h + var(--pink-dh)));
+  --engine-ig-pink-300: #f75fa2;
+  --ig-pink-300: oklch(from var(--engine-ig-pink-300) calc(l + var(--pink-dl)) calc(c * var(--pink-kc)) calc(h + var(--pink-dh)));
+  --engine-ig-pink-400: #e23b8f;
+  --ig-pink-400: oklch(from var(--engine-ig-pink-400) calc(l + var(--pink-dl)) calc(c * var(--pink-kc)) calc(h + var(--pink-dh)));
+  --engine-ig-pink-500: #c42579;
+  --ig-pink-500: oklch(from var(--engine-ig-pink-500) calc(l + var(--pink-dl)) calc(c * var(--pink-kc)) calc(h + var(--pink-dh)));
+  --engine-ig-pink-600: #a21b63;
+  --ig-pink-600: oklch(from var(--engine-ig-pink-600) calc(l + var(--pink-dl)) calc(c * var(--pink-kc)) calc(h + var(--pink-dh)));
+  --engine-ig-pink-700: #7e184d;
+  --ig-pink-700: oklch(from var(--engine-ig-pink-700) calc(l + var(--pink-dl)) calc(c * var(--pink-kc)) calc(h + var(--pink-dh)));
+  --engine-ig-pink-800: #571535;
+  --ig-pink-800: oklch(from var(--engine-ig-pink-800) calc(l + var(--pink-dl)) calc(c * var(--pink-kc)) calc(h + var(--pink-dh)));
+  --engine-ig-pink-900: #290a18;
+  --ig-pink-900: oklch(from var(--engine-ig-pink-900) calc(l + var(--pink-dl)) calc(c * var(--pink-kc)) calc(h + var(--pink-dh)));
+  --engine-ig-cyan-50: #d3f1fa;
+  --ig-cyan-50: oklch(from var(--engine-ig-cyan-50) calc(l + var(--cyan-dl)) calc(c * var(--cyan-kc)) calc(h + var(--cyan-dh)));
+  --engine-ig-cyan-100: #78daf2;
+  --ig-cyan-100: oklch(from var(--engine-ig-cyan-100) calc(l + var(--cyan-dl)) calc(c * var(--cyan-kc)) calc(h + var(--cyan-dh)));
+  --engine-ig-cyan-200: #39bfdc;
+  --ig-cyan-200: oklch(from var(--engine-ig-cyan-200) calc(l + var(--cyan-dl)) calc(c * var(--cyan-kc)) calc(h + var(--cyan-dh)));
+  --engine-ig-cyan-300: #15a5bf;
+  --ig-cyan-300: oklch(from var(--engine-ig-cyan-300) calc(l + var(--cyan-dl)) calc(c * var(--cyan-kc)) calc(h + var(--cyan-dh)));
+  --engine-ig-cyan-400: #028ca3;
+  --ig-cyan-400: oklch(from var(--engine-ig-cyan-400) calc(l + var(--cyan-dl)) calc(c * var(--cyan-kc)) calc(h + var(--cyan-dh)));
+  --engine-ig-cyan-500: #017589;
+  --ig-cyan-500: oklch(from var(--engine-ig-cyan-500) calc(l + var(--cyan-dl)) calc(c * var(--cyan-kc)) calc(h + var(--cyan-dh)));
+  --engine-ig-cyan-600: #055f6f;
+  --ig-cyan-600: oklch(from var(--engine-ig-cyan-600) calc(l + var(--cyan-dl)) calc(c * var(--cyan-kc)) calc(h + var(--cyan-dh)));
+  --engine-ig-cyan-700: #0b4a56;
+  --ig-cyan-700: oklch(from var(--engine-ig-cyan-700) calc(l + var(--cyan-dl)) calc(c * var(--cyan-kc)) calc(h + var(--cyan-dh)));
+  --engine-ig-cyan-800: #0d333c;
+  --ig-cyan-800: oklch(from var(--engine-ig-cyan-800) calc(l + var(--cyan-dl)) calc(c * var(--cyan-kc)) calc(h + var(--cyan-dh)));
+  --engine-ig-cyan-900: #07171c;
+  --ig-cyan-900: oklch(from var(--engine-ig-cyan-900) calc(l + var(--cyan-dl)) calc(c * var(--cyan-kc)) calc(h + var(--cyan-dh)));
+  --engine-ig-sky-50: #dceffa;
+  --ig-sky-50: oklch(from var(--engine-ig-sky-50) calc(l + var(--sky-dl)) calc(c * var(--sky-kc)) calc(h + var(--sky-dh)));
+  --engine-ig-sky-100: #95d5f7;
+  --ig-sky-100: oklch(from var(--engine-ig-sky-100) calc(l + var(--sky-dl)) calc(c * var(--sky-kc)) calc(h + var(--sky-dh)));
+  --engine-ig-sky-200: #51bbee;
+  --ig-sky-200: oklch(from var(--engine-ig-sky-200) calc(l + var(--sky-dl)) calc(c * var(--sky-kc)) calc(h + var(--sky-dh)));
+  --engine-ig-sky-300: #23a1d6;
+  --ig-sky-300: oklch(from var(--engine-ig-sky-300) calc(l + var(--sky-dl)) calc(c * var(--sky-kc)) calc(h + var(--sky-dh)));
+  --engine-ig-sky-400: #0889b9;
+  --ig-sky-400: oklch(from var(--engine-ig-sky-400) calc(l + var(--sky-dl)) calc(c * var(--sky-kc)) calc(h + var(--sky-dh)));
+  --engine-ig-sky-500: #02729b;
+  --ig-sky-500: oklch(from var(--engine-ig-sky-500) calc(l + var(--sky-dl)) calc(c * var(--sky-kc)) calc(h + var(--sky-dh)));
+  --engine-ig-sky-600: #055d7f;
+  --ig-sky-600: oklch(from var(--engine-ig-sky-600) calc(l + var(--sky-dl)) calc(c * var(--sky-kc)) calc(h + var(--sky-dh)));
+  --engine-ig-sky-700: #0b4862;
+  --ig-sky-700: oklch(from var(--engine-ig-sky-700) calc(l + var(--sky-dl)) calc(c * var(--sky-kc)) calc(h + var(--sky-dh)));
+  --engine-ig-sky-800: #0d3244;
+  --ig-sky-800: oklch(from var(--engine-ig-sky-800) calc(l + var(--sky-dl)) calc(c * var(--sky-kc)) calc(h + var(--sky-dh)));
+  --engine-ig-sky-900: #07171f;
+  --ig-sky-900: oklch(from var(--engine-ig-sky-900) calc(l + var(--sky-dl)) calc(c * var(--sky-kc)) calc(h + var(--sky-dh)));
+  --engine-ig-teal-50: #b8f8ec;
+  --ig-teal-50: oklch(from var(--engine-ig-teal-50) calc(l + var(--teal-dl)) calc(c * var(--teal-kc)) calc(h + var(--teal-dh)));
+  --engine-ig-teal-100: #62e0cd;
+  --ig-teal-100: oklch(from var(--engine-ig-teal-100) calc(l + var(--teal-dl)) calc(c * var(--teal-kc)) calc(h + var(--teal-dh)));
+  --engine-ig-teal-200: #3cc3b1;
+  --ig-teal-200: oklch(from var(--engine-ig-teal-200) calc(l + var(--teal-dl)) calc(c * var(--teal-kc)) calc(h + var(--teal-dh)));
+  --engine-ig-teal-300: #25a897;
+  --ig-teal-300: oklch(from var(--engine-ig-teal-300) calc(l + var(--teal-dl)) calc(c * var(--teal-kc)) calc(h + var(--teal-dh)));
+  --engine-ig-teal-400: #198f80;
+  --ig-teal-400: oklch(from var(--engine-ig-teal-400) calc(l + var(--teal-dl)) calc(c * var(--teal-kc)) calc(h + var(--teal-dh)));
+  --engine-ig-teal-500: #13776b;
+  --ig-teal-500: oklch(from var(--engine-ig-teal-500) calc(l + var(--teal-dl)) calc(c * var(--teal-kc)) calc(h + var(--teal-dh)));
+  --engine-ig-teal-600: #116157;
+  --ig-teal-600: oklch(from var(--engine-ig-teal-600) calc(l + var(--teal-dl)) calc(c * var(--teal-kc)) calc(h + var(--teal-dh)));
+  --engine-ig-teal-700: #114b43;
+  --ig-teal-700: oklch(from var(--engine-ig-teal-700) calc(l + var(--teal-dl)) calc(c * var(--teal-kc)) calc(h + var(--teal-dh)));
+  --engine-ig-teal-800: #10342f;
+  --ig-teal-800: oklch(from var(--engine-ig-teal-800) calc(l + var(--teal-dl)) calc(c * var(--teal-kc)) calc(h + var(--teal-dh)));
+  --engine-ig-teal-900: #081815;
+  --ig-teal-900: oklch(from var(--engine-ig-teal-900) calc(l + var(--teal-dl)) calc(c * var(--teal-kc)) calc(h + var(--teal-dh)));
+  /* semantic tokens that alias a ramp step */
+  --color-accent-blue: var(--ig-info-seed);
+  --color-accent-violet: var(--ig-secondary-seed);
+  --color-accent-sky: var(--ig-sky-200);
+  --color-accent-teal: var(--ig-teal-200);
+  --color-action-default: var(--ig-primary-seed);
+  --color-feedback-error-default: oklch(from var(--ig-error-600) calc((1 - var(--theme-dark)) * min(l, max(0.35, 0.4767 - 0.6 * max(0, l - 0.4767))) + var(--theme-dark) * max(l, min(0.92, 0.74 + 0.6 * max(0, 0.74 - l)))) calc(c * ((1 - var(--theme-dark)) * min(l, max(0.35, 0.4767 - 0.6 * max(0, l - 0.4767))) / max(l, 0.0001) + var(--theme-dark) * min(1, (1 - max(l, min(0.92, 0.74 + 0.6 * max(0, 0.74 - l)))) / max(1 - l, 0.0001)))) h);
+  --badge-bundle-color: oklch(from var(--ig-secondary-700) calc((1 - var(--theme-dark)) * min(l, max(0.35, 0.488 - 0.6 * max(0, l - 0.488))) + var(--theme-dark) * max(l, min(0.92, 0.74 + 0.6 * max(0, 0.74 - l)))) calc(c * ((1 - var(--theme-dark)) * min(l, max(0.35, 0.488 - 0.6 * max(0, l - 0.488))) / max(l, 0.0001) + var(--theme-dark) * min(1, (1 - max(l, min(0.92, 0.74 + 0.6 * max(0, 0.74 - l)))) / max(1 - l, 0.0001)))) h);
+  --badge-oss-color: oklch(from var(--ig-success-600) calc((1 - var(--theme-dark)) * min(l, max(0.35, 0.4443 - 0.6 * max(0, l - 0.4443))) + var(--theme-dark) * max(l, min(0.92, 0.74 + 0.6 * max(0, 0.74 - l)))) calc(c * ((1 - var(--theme-dark)) * min(l, max(0.35, 0.4443 - 0.6 * max(0, l - 0.4443))) / max(l, 0.0001) + var(--theme-dark) * min(1, (1 - max(l, min(0.92, 0.74 + 0.6 * max(0, 0.74 - l)))) / max(1 - l, 0.0001)))) h);
+  --table-mark-partial-color: oklch(from var(--ig-warn-800) calc((1 - var(--theme-dark)) * min(l, max(0.35, 0.3065 - 0.6 * max(0, l - 0.3065))) + var(--theme-dark) * max(l, min(0.92, 0.74 + 0.6 * max(0, 0.74 - l)))) calc(c * ((1 - var(--theme-dark)) * min(l, max(0.35, 0.3065 - 0.6 * max(0, l - 0.3065))) / max(l, 0.0001) + var(--theme-dark) * min(1, (1 - max(l, min(0.92, 0.74 + 0.6 * max(0, 0.74 - l)))) / max(1 - l, 0.0001)))) h);
+  --window-dot-red: var(--ig-error-300);
+  --window-dot-amber: var(--ig-warn-200);
+  --window-dot-green: var(--ig-success-300);
+  --fw-angular-color: oklch(from var(--ig-pink-500) calc((1 - var(--theme-dark)) * min(l, max(0.35, 0.5516 - 0.6 * max(0, l - 0.5516))) + var(--theme-dark) * max(l, min(0.92, 0.74 + 0.6 * max(0, 0.74 - l)))) calc(c * ((1 - var(--theme-dark)) * min(l, max(0.35, 0.5516 - 0.6 * max(0, l - 0.5516))) / max(l, 0.0001) + var(--theme-dark) * min(1, (1 - max(l, min(0.92, 0.74 + 0.6 * max(0, 0.74 - l)))) / max(1 - l, 0.0001)))) h);
+  --fw-react-color: oklch(from var(--ig-cyan-500) calc((1 - var(--theme-dark)) * min(l, max(0.35, 0.5178 - 0.6 * max(0, l - 0.5178))) + var(--theme-dark) * max(l, min(0.92, 0.74 + 0.6 * max(0, 0.74 - l)))) calc(c * ((1 - var(--theme-dark)) * min(l, max(0.35, 0.5178 - 0.6 * max(0, l - 0.5178))) / max(l, 0.0001) + var(--theme-dark) * min(1, (1 - max(l, min(0.92, 0.74 + 0.6 * max(0, 0.74 - l)))) / max(1 - l, 0.0001)))) h);
+  --tile-pink: var(--ig-pink-400);
+  --tile-teal: var(--ig-success-400);
+  --tile-cyan: var(--ig-cyan-200);
+  --tile-amber: var(--ig-warn-200);
+  /* state tokens: derived from their base. Override a base and its states follow. */
+  --color-action-text: oklch(from var(--color-action-default) calc((1 - var(--theme-dark)) * min(l, max(0.35, 0.5466 - 0.6 * max(0, l - 0.5466))) + var(--theme-dark) * max(l, min(0.92, 0.74 + 0.6 * max(0, 0.74 - l)))) calc(c * ((1 - var(--theme-dark)) * min(l, max(0.35, 0.5466 - 0.6 * max(0, l - 0.5466))) / max(l, 0.0001) + var(--theme-dark) * min(1, (1 - max(l, min(0.92, 0.74 + 0.6 * max(0, 0.74 - l)))) / max(1 - l, 0.0001)))) h);
+  --color-action-fill-hover: oklch(from var(--color-action-default) calc(l + -0.0719) calc(c * 0.8229) calc(h + 0.07));
+  --color-action-active: oklch(from var(--color-action-default) calc(l + -0.1271) calc(c * 0.6811) calc(h + -0.15));
+  --color-action-hover: oklch(from var(--color-action-text) calc(l + -0.0225) calc(c * 0.5758) calc(h + -13.81));
+  --color-link-utility: oklch(from var(--color-action-text) calc(l + -0.0225) calc(c * 0.5758) calc(h + -13.81));
+  --color-surface-tint: oklch(from var(--color-action-default) calc((1 - var(--theme-dark)) * 0.9717 + var(--theme-dark) * 0.2368) calc(c * 0.0436 * (1 + 1.5 * var(--theme-dark))) calc(h + 17.61));
+  --color-surface-tint-strong: oklch(from var(--color-action-default) calc((1 - var(--theme-dark)) * 0.9395 + var(--theme-dark) * 0.2786) calc(c * 0.1176 * (1 + 1.5 * var(--theme-dark))) calc(h + 12.29));
+  --color-border-accent: oklch(from var(--color-action-default) calc((1 - var(--theme-dark)) * 0.8810 + var(--theme-dark) * 0.3547) calc(c * 0.2360 * (1 + 1.5 * var(--theme-dark))) calc(h + 10.49));
+  --table-header-sub-highlight-color: oklch(from var(--color-action-default) calc((1 - 0) * 0.9717 + 0 * 0.2368) calc(c * 0.0436 * (1 + 1.5 * 0)) calc(h + 17.61));
+  --color-accent-blue-hover: oklch(from var(--color-accent-blue) calc(l + -0.0722) calc(c * 0.8392) calc(h + 0.16));
+  --color-accent-blue-active: oklch(from var(--color-accent-blue) calc(l + -0.1450) calc(c * 0.7697) calc(h + 0.25));
+  --color-link-inverse-hover: oklch(from var(--color-link-inverse) calc(l + 0.2371) calc(c * 0.0000) calc(h + 0));
+  --color-focus-inverse: oklch(from var(--color-link-inverse) calc(l + 0.0909) calc(c * 0.6634) calc(h + -0.39));
+  --footer-focus: oklch(from var(--color-link-inverse) calc(l + 0.0909) calc(c * 0.6634) calc(h + -0.39));
+  --footer-link-hover: oklch(from var(--footer-link) calc(l + 0.1009) calc(c * 0.0000) calc(h + 0));
+  --color-feedback-error-inverse: oklch(from var(--color-feedback-error-default) calc(l + 0.2216) calc(c * 1.0391) calc(h + 0.01));
+  --badge-bundle-background: oklch(from var(--badge-bundle-color) calc((1 - var(--theme-dark)) * 0.9755 + var(--theme-dark) * 0.2319) calc(c * 0.0507 * (1 + 1.5 * var(--theme-dark))) calc(h + 5.81));
+  --fw-angular-background: oklch(from var(--fw-angular-color) calc((1 - var(--theme-dark)) * 0.9460 + var(--theme-dark) * 0.2702) calc(c * 0.1342 * (1 + 1.5 * var(--theme-dark))) calc(h + 6.18));
+  --fw-angular-border: oklch(from var(--fw-angular-color) calc((1 - var(--theme-dark)) * 0.8563 + var(--theme-dark) * 0.3869) calc(c * 0.4165 * (1 + 1.5 * var(--theme-dark))) calc(h + 4.89));
+  --fw-react-background: oklch(from var(--fw-react-color) calc((1 - var(--theme-dark)) * 0.9392 + var(--theme-dark) * 0.2790) calc(c * 0.3684 * (1 + 1.5 * var(--theme-dark))) calc(h + 2.63));
+  --fw-react-border: oklch(from var(--fw-react-color) calc((1 - var(--theme-dark)) * 0.8371 + var(--theme-dark) * 0.4117) calc(c * 1.0737 * (1 + 1.5 * var(--theme-dark))) calc(h + 0.47));
+  --fw-blazor-background: oklch(from var(--color-accent-violet) calc((1 - var(--theme-dark)) * 0.9755 + var(--theme-dark) * 0.2319) calc(c * 0.0395 * (1 + 1.5 * var(--theme-dark))) calc(h + 6.03));
+  --fw-blazor-border: oklch(from var(--color-accent-violet) calc((1 - var(--theme-dark)) * 0.9040 + var(--theme-dark) * 0.3248) calc(c * 0.2125 * (1 + 1.5 * var(--theme-dark))) calc(h + 6.41));
+  --fw-webcomponents-background: oklch(from var(--color-action-default) calc((1 - var(--theme-dark)) * 0.9717 + var(--theme-dark) * 0.2368) calc(c * 0.0436 * (1 + 1.5 * var(--theme-dark))) calc(h + 17.61));
+  --fw-webcomponents-border: oklch(from var(--color-action-default) calc((1 - var(--theme-dark)) * 0.8810 + var(--theme-dark) * 0.3547) calc(c * 0.2360 * (1 + 1.5 * var(--theme-dark))) calc(h + 10.49));
+  --fw-winforms-background: oklch(from var(--color-action-default) calc((1 - var(--theme-dark)) * 0.9717 + var(--theme-dark) * 0.2368) calc(c * 0.0436 * (1 + 1.5 * var(--theme-dark))) calc(h + 17.61));
+  --fw-winforms-border: oklch(from var(--color-action-default) calc((1 - var(--theme-dark)) * 0.8810 + var(--theme-dark) * 0.3547) calc(c * 0.2360 * (1 + 1.5 * var(--theme-dark))) calc(h + 10.49));
+  --fw-wpf-background: oklch(from var(--color-action-default) calc((1 - var(--theme-dark)) * 0.9395 + var(--theme-dark) * 0.2786) calc(c * 0.1176 * (1 + 1.5 * var(--theme-dark))) calc(h + 12.29));
+  --fw-wpf-border: oklch(from var(--color-action-default) calc((1 - var(--theme-dark)) * 0.8810 + var(--theme-dark) * 0.3547) calc(c * 0.2360 * (1 + 1.5 * var(--theme-dark))) calc(h + 10.49));
+  --table-mark-partial-background: oklch(from var(--table-mark-partial-color) calc((1 - var(--theme-dark)) * 0.8500 + var(--theme-dark) * 0.3949) calc(c * 1.7546 * (1 + 1.5 * var(--theme-dark))) calc(h + -0.29));
+  --footer-heading: oklch(from var(--footer-text) calc(l + -0.0907) calc(c * 1.3685) calc(h + -5.88));
+  --footer-link: oklch(from var(--footer-text) calc(l + 0.0778) calc(c * 0.5091) calc(h + -4.35));
+  --footer-strong: oklch(from var(--footer-text) calc(l + 0.1662) calc(c * 0.1365) calc(h + 0));
+  --color-text-inverse-muted: oklch(from var(--color-text-inverse) calc(l + -0.2694) 0.0171 253.94);
+  --color-link-utility-hover: var(--color-action-text);
+  --color-focus-default: var(--color-action-text);
+  --tile-blue: var(--color-accent-blue);
+  --tile-violet: var(--color-accent-violet);
+  --tile-royal: var(--color-action-default);
+  --color-link-inverse: var(--color-accent-sky);
+  --footer-icon: var(--footer-text);
+  /* label on the action fill: the engine's adaptive-contrast(), black or white by luminance at the WCAG AA threshold */
+  --color-action-on: hsla(from color(from var(--color-action-default) var(--y-contrast)) h 0 l / 1);
+}
+[data-ig="icon-tile"] { --tile-fill: var(--tile-blue); --tile-on: hsla(from color(from var(--tile-fill) var(--y-contrast)) h 0 l / 1); }
+
+/* ===== 6. themes ===== */
+:root, [data-theme="light"] { --theme-dark: 0; }
+/* neutral roles, declared again so a themed region or a scope resolves them against its own grey and surface ramps */
+:root, [data-ig-scope], [data-theme] {
+  --color-text-heading: var(--ig-gray-900);
+  --color-text-primary: var(--ig-gray-800);
+  --color-text-secondary: var(--ig-gray-600);
+  --color-text-ui: var(--ig-gray-700);
+  --color-text-muted: var(--ig-gray-500);
+  --color-icon-subtle: var(--ig-gray-400);
+  --color-surface-page: var(--ig-surface-base);
+  --color-surface-hero: var(--ig-surface-sunken);
+  --color-surface-subtle: var(--ig-gray-50);
+  --color-surface-card: var(--ig-surface-raised);
+  --color-surface-muted: var(--ig-gray-100);
+  --color-border-default: var(--ig-gray-200);
+  --color-border-subtle: var(--ig-gray-100);
+  --color-border-control: var(--ig-gray-500);
+  --table-mark-yes-background: var(--ig-gray-200);
+  --table-mark-yes-color: var(--ig-gray-700);
+  --table-mark-no-background: var(--ig-gray-100);
+  --table-mark-no-color: var(--ig-gray-600);
+}
+/* dark: the light grey and surface ramps are swapped for the engine's dark palette (palette() with a dark surface and a light grey).
+   Every semantic name keeps its meaning. Brand fills keep the seed; text, outlines, tints and hairlines switch through --theme-dark. */
+[data-theme="dark"] {
+  --theme-dark: 1; color-scheme: dark;
+  --ig-gray-50: var(--ig-dark-gray-50);
+  --ig-gray-100: var(--ig-dark-gray-100);
+  --ig-gray-200: var(--ig-dark-gray-200);
+  --ig-gray-300: var(--ig-dark-gray-300);
+  --ig-gray-400: var(--ig-dark-gray-400);
+  --ig-gray-500: var(--ig-dark-gray-500);
+  --ig-gray-600: var(--ig-dark-gray-600);
+  --ig-gray-700: var(--ig-dark-gray-700);
+  --ig-gray-800: var(--ig-dark-gray-800);
+  --ig-gray-900: var(--ig-dark-gray-900);
+  --ig-surface-base: var(--ig-dark-surface-base);
+  --ig-surface-sunken: var(--ig-dark-surface-sunken);
+  --ig-surface-raised: var(--ig-dark-surface-raised);
+  --ig-surface-overlay: var(--ig-dark-surface-overlay);
+}
+[data-theme] { background-color: var(--color-surface-page); color: var(--color-text-primary); }
